@@ -1,6 +1,4 @@
-from django.template.response import TemplateResponse
 from django.views.decorators.csrf import csrf_exempt
-from django.shortcuts import render
 import json, datetime
 from django.http import JsonResponse
 import requests
@@ -26,12 +24,12 @@ def message(request):
     if cafeteria_name == '도서관 좌석':
         return JsonResponse({
             'message': {
-                'text': '개발중인 기능입니다'
+                'text': '열람실을 선택하세요'
             },
             'keyboard': {
                 'type': 'buttons',
-                'buttons': ['3층 1열람실: ' + str(library_crawl(1)) + '%', '3층 2열람실: ' + str(library_crawl(2)) + '%', '4층 3열람실A: ' + str(library_crawl(3)) + '%',
-                            '4층 3열람실B: ' + str(library_crawl(4)) + '%', '메인으로 가기']
+                'buttons': ['3층 1열람실: ' + str(library(1)[6]) + '%', '3층 2열람실: ' + str(library(2)[6]) + '%', '4층 3열람실A: ' + str(library(3)[6]) + '%',
+                            '4층 3열람실B: ' + str(library(4)[6]) + '%', '메인으로 가기']
             }
 
         })
@@ -47,29 +45,32 @@ def message(request):
             }
         })
 
-    elif (cafeteria_name == '3층 1열람실: ' + str(library_crawl(1)) + '%' or cafeteria_name == '3층 2열람실: ' + str(library_crawl(2)) + '%'
-          or cafeteria_name == '4층 3열람실A: ' + str(library_crawl(3)) + '%' or cafeteria_name == '4층 3열람실B: ' + str(library_crawl(4)) + '%'):
+    elif ':' in cafeteria_name:
 
-        if cafeteria_name == '3층 1열람실: ' + str(library_crawl(1)) + '%':
+        if '3층 1열람실: ' in cafeteria_name:
             name = "3층 1열람실 현황: "
             lib_num = 1
             room_no = 8
-        elif cafeteria_name == '3층 2열람실: ' + str(library_crawl(2)) + '%':
+        elif '3층 2열람실: ' in cafeteria_name:
             name = "3층 2열람실 현황: "
             lib_num = 2
             room_no = 9
-        elif cafeteria_name == '4층 3열람실A: ' + str(library_crawl(3)) + '%':
+        elif '4층 3열람실A: ' in cafeteria_name:
             name = "4층 3열람실A 현황: "
             lib_num = 3
             room_no = 10
-        elif cafeteria_name == '4층 3열람실B: ' + str(library_crawl(4)) + '%':
+        elif '4층 3열람실B: ' in cafeteria_name:
             name = "4층 3열람실B 현황: "
             lib_num = 4
             room_no = 11
 
         return JsonResponse({
             'message': {
-                'text': name + str(library_crawl(lib_num)) + '%' + '\n\nhttp://203.232.237.8/domian5/2/roomview5.asp?room_no=' + str(room_no),
+                'text': name + str(library(lib_num)[6]) + '%' + '\n이용자 수: ' + str(library(lib_num)[4]) + '명    남은 좌석 수: ' + str(library(lib_num)[5]),
+                'message_button': {
+                    'label': '좌석보기',
+                    'url': 'http://203.232.237.8/domian5/2/roomview5.asp?room_no=' + str(room_no)
+                }
             },
             'keyboard': {
                 'type': 'buttons',
@@ -106,7 +107,7 @@ def crawl(cafeteria):
         req = requests.get('https://webs.hufs.ac.kr/jsp/HUFS/cafeteria/viewWeek.jsp?startDt=' + today_d + '&endDt=' + today_d + '&caf_name=%B1%B9%C1%A6%BB%E7%C8%B8%B1%B3%C0%B0%BF%F8%BD%C4%B4%E7&caf_id=h201')
 
     html = req.text
-    soup = BeautifulSoup(html, 'html.parser')
+    soup = BeautifulSoup(html, 'lxml')
     my_titles = soup.select(
         'tr'
     )
@@ -119,23 +120,46 @@ def crawl(cafeteria):
     for i in data:
         if len(data) == 1:
             cafe_menu.append(i)
-            return "오늘은 학식이 없어요!"
-            #print('len이 1')
+            return "  오늘은 학식이 없어요!"
+
         else:
             if "\n" in i:
                 if "방학 중" in i:
                     break
+                elif '우리 식당은' in i:
+                    break
+                elif '농협' in i:
+                    break
                 else:
+                    i = i.replace('\n', ' ').replace('&', '').replace('*', '').split()
                     cafe_menu.append(i)
-                    #print("len이 2")
 
-    return cafe_menu[1]
-    #print(cafe_menu)
+    menu = ''
+    menu_size = len(cafe_menu)
+
+    for size in range(1, menu_size):
+        time_size = len(cafe_menu[size])
+        menu = menu + '\n----------------\n\n'
+
+        for what in range(0, time_size):
+            if what == (time_size-1):
+                if cafeteria == "국제사회교육원":
+                    menu = menu + cafe_menu[size][what] + '\n'
+                else:
+                    menu = menu + '\n   가격 : ' + cafe_menu[size][what]
+            elif what == 0:
+                menu = menu + cafe_menu[size][what] + '\n\n'
+            else:
+                menu = menu + cafe_menu[size][what] + '\n'
+
+    return menu
 
 
-def library_crawl(num):
+
+
+def library(num):
     req = urllib.request.urlopen('http://203.232.237.8/domian5/2/domian5.asp')
-    soup = BeautifulSoup(req, 'html.parser', from_encoding="utf-8")
+    soup = BeautifulSoup(req, 'lxml', from_encoding="utf-8")
 
     my_titles = soup.select(
         'tr'
@@ -146,7 +170,7 @@ def library_crawl(num):
         data.append(title.text)
 
     # data[3]은 3층 1열람실 내용
-    return data[num+2].split()[6]
+    return data[num+2].split()
 
 
 
