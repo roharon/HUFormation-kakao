@@ -26,6 +26,7 @@ def message(request):
     # content 의 내용
     user_name = received_json_data['user_key']
     # user_key 의 내용
+    content_type = received_json_data['type']
     print(user_name + '님이 ' + content_name + '을 눌렀습니다')
 
     con = sqlite3.connect("./DB/userdata.db")
@@ -292,15 +293,25 @@ def message(request):
             }
     })
     else:
+        mess = "이걸 보고계시다면 오류입니다, 개발자에게 알려주세요"
+        if content_type == 'photo':
+            mess = "사진은 기능이 없어요, 버튼을 눌러주세요!"
+        elif content_type == 'video':
+            mess = "영상은 기능이 없어요, 버튼을 눌러주세요!"
+        elif content_type == 'audio':
+            mess = "녹음파일은 기능이 없어요, 버튼을 눌러주세요!"
+
         return JsonResponse({
             'message': {
-                'text': "이걸 보고계시다면 오류입니다, 개발자에게 알려주세요"
+                'text': mess
             },
             'keyboard': {
                 'type': 'buttons',
                 'buttons': button_info
             }
         })
+
+
 
 def glo_crawl(cafeteria):
     start = time.time()
