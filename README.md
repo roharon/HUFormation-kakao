@@ -17,7 +17,7 @@
     
 </p>
 <p>
-<h2>사용된 모듈  | 자세한 부분은 requirements.txt 참조
+<h2>사용된 모듈
 </h2>
 <ul>
 <li>beautifulsoup4</li>
@@ -26,6 +26,8 @@
 <li>requests</li>
 <li>sqlite3 (Django에 내장</li>
 </ul>
+자세한 부분은 requirements.txt 참조
+
 </p>
     
     
