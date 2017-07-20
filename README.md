@@ -4,7 +4,9 @@
 
 <html>
 <p>
-    <h2>개발 환경</h2>
+
+<br>
+  <h2>개발 환경</h2>
     <ul>
     <li>Ubuntu 16.04</li>
     <li>PyCharm</li>
