@@ -332,7 +332,7 @@ def glo_crawl(cafeteria):
     for i in data:
         if len(data) == 1:
             cafe_menu.append(i)
-            return "  오늘은 학식이 없어요!"
+            return "\n오늘은 학식이 없어요 (멘붕)"
         else:
             if "\n" in i:
                 if "방학 중" in i:
@@ -373,6 +373,7 @@ def seo_crawl(cafeteria):
     start = time.time()
     today = datetime.date.today()
     today_d = today.strftime("%Y%m%d")
+    today_w = today.strftime("%w")
 
     if cafeteria == '인문관':
         req = requests.get('https://webs.hufs.ac.kr/jsp/HUFS/cafeteria/viewWeek.jsp?startDt=' + today_d + '&endDt=' + today_d + '&caf_name=%C0%CE%B9%AE%B0%FC%BD%C4%B4%E7&caf_id=h101')
@@ -395,7 +396,7 @@ def seo_crawl(cafeteria):
     for i in data:
         if len(data) == 1:
             cafe_menu.append(i)
-            # return "오늘은 학식이 없어요!"
+            return "\n오늘은 학식이 없어요 (부르르)"
         else:
             if "\n" in i:
                 i = i.replace('\n', ' ').replace('&', ' ').replace('*', ' ').split()
@@ -416,6 +417,10 @@ def seo_crawl(cafeteria):
 
     for size in range(1, menu_size):
         time_size = len(cafe_menu[size])
+        if today_w == "6":      # 0은 일요일 6은 토요일
+            if cafeteria in '인문관':
+                if size in [1, 3, 4]:
+                    continue
         menu = menu + '\n----------------\n'
 
         for what in range(0, time_size):
