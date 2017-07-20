@@ -1,4 +1,30 @@
 # HUFormation
-한국외대 훕포메이션 플러스친구 소스코드
+> MIT 라이센스입니다. 
 
-MIT License.
+
+<html>
+<p>
+    <h2>개발 환경</h2>
+    <ul>
+    <li>Ubuntu 16.04</li>
+    <li>PyCharm</li>
+    <li>Python 3.6</li>
+    <li>Django 1.11.2</li>
+    </ul>
+    
+</p>
+<p>
+<h2>사용된 모듈</h2>
+<ul>
+<li>beautifulsoup4</li>
+<li>Django</li>
+<li>lxml</li>
+<li>requests</li>
+<li>sqlite3 (Django에 내장</li>
+</ul>
+</p>
+    
+    
+    
+    
+</html>
