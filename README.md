@@ -24,6 +24,7 @@
 <li>lxml</li>
 <li>requests</li>
 <li>sqlite3 (Django에 내장</li>
+자세한 부분은 requirements.txt 참조
 </ul>
 </p>
     
