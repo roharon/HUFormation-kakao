@@ -4,6 +4,8 @@ from bs4 import BeautifulSoup
 import json, datetime, requests, time
 import urllib.request
 import sqlite3, os
+import random
+
 
 def keyboard(request):
 
@@ -134,6 +136,18 @@ def message(request):
     elif content_name == '도서관':
         if user_type == 'seoul':
             lib_data = seo_library(content_name)
+
+            if lib_data == 555:
+                return JsonResponse({
+                    'message': {
+                        'text': "도서관 좌석을 불러 올 수 없습니다.\n다시 이용해주세요",
+                    },
+                    'keyboard': {
+                        'type': 'buttons',
+                        'buttons': button_info
+                    }
+                })
+
             buttons = ['4층 제1열람실(A): ' + str(lib_data['4-1A'] + '%'),
                     '4층 제1열람실(B): ' + str(lib_data['4-1B'] + '%'),
                     '4층 제2열람실(노트북): ' + str(lib_data['4-2'] + '%'),
@@ -154,6 +168,18 @@ def message(request):
             })
         elif user_type == 'global':
             lib_data = glo_library(content_name)
+
+            if lib_data == 555:
+                return JsonResponse({
+                    'message': {
+                        'text': "도서관 좌석을 불러 올 수 없습니다.\n다시 이용해주세요",
+                    },
+                    'keyboard': {
+                        'type': 'buttons',
+                        'buttons': button_info
+                    }
+                })
+
             buttons = ['3층 1열람실: ' + str(lib_data['3-1']) + '%',
                        '3층 2열람실: ' + str(lib_data['3-2']) + '%',
                        '4층 3열람실A: ' + str(lib_data['4-3A']) + '%',
@@ -204,6 +230,7 @@ def message(request):
             lib_data = seo_library(lib_num)
             end_time = time.time()
             print(end_time - start_time)
+
             return JsonResponse({
                 'message': {
                     'text': name + str(lib_data['%']) + '%' + '\n이용자 수: ' + str(lib_data['이용자']) +
@@ -318,16 +345,26 @@ def glo_crawl(cafeteria):
     today = datetime.date.today()
     today_d = today.strftime("%Y%m%d")
 
-    if cafeteria == "후생관":
-        req = requests.get('https://webs.hufs.ac.kr/jsp/HUFS/cafeteria/viewWeek.jsp?startDt=' + today_d + '&endDt=' + today_d + '&caf_name=%C8%C4%BB%FD%B0%FC+%C7%D0%BB%FD%BD%C4%B4%E7&caf_id=h203')
-    elif cafeteria == "어문관":
-        req = requests.get('https://webs.hufs.ac.kr/jsp/HUFS/cafeteria/viewWeek.jsp?startDt=' + today_d + '&endDt=' + today_d + '&caf_name=%BE%EE%B9%AE%B0%FC&caf_id=h204')
-    elif cafeteria == "기숙사 식당":
-        req = requests.get('https://webs.hufs.ac.kr/jsp/HUFS/cafeteria/viewWeek.jsp?startDt=' + today_d + '&endDt=' + today_d + '&caf_name=HufsDorm+%BD%C4%B4%E7&caf_id=h205')
-    elif cafeteria == "교직원 식당":
-        req = requests.get('https://webs.hufs.ac.kr/jsp/HUFS/cafeteria/viewWeek.jsp?startDt=' + today_d + '&endDt=' + today_d + '&caf_name=%C8%C4%BB%FD%B0%FC+%B1%B3%C1%F7%BF%F8%BD%C4%B4%E7&caf_id=h202')
-    elif cafeteria == "국제사회교육원":
-        req = requests.get('https://webs.hufs.ac.kr/jsp/HUFS/cafeteria/viewWeek.jsp?startDt=' + today_d + '&endDt=' + today_d + '&caf_name=%B1%B9%C1%A6%BB%E7%C8%B8%B1%B3%C0%B0%BF%F8%BD%C4%B4%E7&caf_id=h201')
+
+    try:
+        if cafeteria == "후생관":
+            req = requests.get(
+                'https://wis.hufs.ac.kr/jsp/HUFS/cafeteria/viewWeek.jsp?startDt=' + today_d + '&endDt=' + today_d + '&caf_name=후생관+학생식당&caf_id=h203')
+        elif cafeteria == "어문관":
+            req = requests.get(
+                'https://wis.hufs.ac.kr/jsp/HUFS/cafeteria/viewWeek.jsp?startDt=' + today_d + '&endDt=' + today_d + '&caf_name=어문관&caf_id=h204')
+        elif cafeteria == "기숙사 식당":
+            req = requests.get(
+                'https://wis.hufs.ac.kr/jsp/HUFS/cafeteria/viewWeek.jsp?startDt=' + today_d + '&endDt=' + today_d + '&caf_name=HufsDorm+식당&caf_id=h205')
+        elif cafeteria == "교직원 식당":
+            req = requests.get(
+                'https://wis.hufs.ac.kr/jsp/HUFS/cafeteria/viewWeek.jsp?startDt=' + today_d + '&endDt=' + today_d + '&caf_name=후생관+교직원식당&caf_id=h202')
+        elif cafeteria == "국제사회교육원":
+            req = requests.get(
+                'https://wis.hufs.ac.kr/jsp/HUFS/cafeteria/viewWeek.jsp?startDt=' + today_d + '&endDt=' + today_d + '&caf_name=국제사회교육원식당&caf_id=h201')
+    except:
+        error = "\n학교 사이트 점검중!\n학식내용을 불러올 수 없습니다."
+        return error
 
     html = req.text
     soup = BeautifulSoup(html, 'lxml')
@@ -337,13 +374,15 @@ def glo_crawl(cafeteria):
     data = []
     cafe_menu = []
 
+    emoti = '(허걱)', '(멘붕)', '(깜짝)', '(허걱)', '(부르르)', '(훌쩍)', '(우와)', '(심각)', '(헉)'
+
     for title in my_titles:
         data.append(title.text)
 
     for i in data:
         if len(data) == 1:
             cafe_menu.append(i)
-            return "\n오늘은 학식이 없어요 (멘붕)"
+            return "\n오늘은 학식이 없어요 " + random.choice(emoti)
         else:
             if "\n" in i:
                 if "방학 중" in i:
@@ -386,12 +425,19 @@ def seo_crawl(cafeteria):
     today_d = today.strftime("%Y%m%d")
     today_w = today.strftime("%w")
 
-    if cafeteria == '인문관':
-        req = requests.get('https://webs.hufs.ac.kr/jsp/HUFS/cafeteria/viewWeek.jsp?startDt=' + today_d + '&endDt=' + today_d + '&caf_name=%C0%CE%B9%AE%B0%FC%BD%C4%B4%E7&caf_id=h101')
-    elif cafeteria == '교수회관':
-        req = requests.get('https://webs.hufs.ac.kr/jsp/HUFS/cafeteria/viewWeek.jsp?startDt=' + today_d + '&endDt=' + today_d + '&caf_name=%B1%B3%BC%F6%C8%B8%B0%FC%BD%C4%B4%E7&caf_id=h102')
-    elif cafeteria == '스카이 라운지':
-        req = requests.get('https://webs.hufs.ac.kr/jsp/HUFS/cafeteria/viewWeek.jsp?startDt=' + today_d + '&endDt=' + today_d + '&caf_name=%BD%BA%C4%AB%C0%CC%B6%F3%BF%EE%C1%F6&caf_id=h103')
+    try:
+        if cafeteria == '인문관':
+            req = requests.get(
+                'https://wis.hufs.ac.kr/jsp/HUFS/cafeteria/viewWeek.jsp?startDt=' + today_d + '&endDt=' + today_d + '&caf_name=인문관식당&caf_id=h101')
+        elif cafeteria == '교수회관':
+            req = requests.get(
+                'https://wis.hufs.ac.kr/jsp/HUFS/cafeteria/viewWeek.jsp?startDt=' + today_d + '&endDt=' + today_d + '&caf_name=교수회관식당&caf_id=h102')
+        elif cafeteria == '스카이 라운지':
+            req = requests.get(
+                'https://wis.hufs.ac.kr/jsp/HUFS/cafeteria/viewWeek.jsp?startDt=' + today_d + '&endDt=' + today_d + '&caf_name=스카이라운지&caf_id=h103')
+    except:
+        error = "\n학교 사이트 점검중!\n학식내용을 불러올 수 없습니다."
+        return error
 
     html = req.text
     soup = BeautifulSoup(html, 'lxml')
@@ -401,13 +447,14 @@ def seo_crawl(cafeteria):
     data = []
     cafe_menu = []
 
+    emoti = '(허걱)', '(멘붕)', '(깜짝)', '(허걱)', '(부르르)', '(훌쩍)', '(우와)', '(심각)', '(헉)'
     for title in my_titles:
         data.append(title.text)
 
     for i in data:
         if len(data) == 1:
             cafe_menu.append(i)
-            return "\n오늘은 학식이 없어요 (부르르)"
+            return "\n오늘은 학식이 없어요 " + random.choice(emoti)
         else:
             if "\n" in i:
                 i = i.replace('\n', ' ').replace('&', ' ').replace('*', ' ').split()
@@ -445,7 +492,12 @@ def seo_crawl(cafeteria):
     return menu
 
 def glo_library(name):
-    req = urllib.request.urlopen('http://203.232.237.8/domian5/2/domian5.asp')
+
+    try:
+        req = urllib.request.urlopen('http://203.232.237.8/domian5/2/domian5.asp')
+    except:
+        return 555
+
     soup = BeautifulSoup(req, 'lxml', from_encoding="utf-8")
 
     my_titles = soup.select(
@@ -467,7 +519,12 @@ def glo_library(name):
 
 
 def seo_library(name):
-    req = urllib.request.urlopen('http://203.232.237.8/domian5/domian5.asp')
+
+    try:
+        req = urllib.request.urlopen('http://203.232.237.8/domian5/domian5.asp')
+    except:
+        return 555
+
     soup = BeautifulSoup(req, 'lxml', from_encoding="utf-8")
 
     my_titles = soup.select(
