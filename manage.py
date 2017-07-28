@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import os
 import sys
+import sqlite3
 
 if __name__ == "__main__":
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "hufscoops_project.settings")
@@ -19,4 +20,16 @@ if __name__ == "__main__":
                 "forget to activate a virtual environment?"
             )
         raise
+
+    con = sqlite3.connect("./DB/userdata.db")
+    cur = con.cursor()
+    try:
+        cur.execute("CREATE TABLE user_data(Name TEXT, Campus TEXT);")
+    except:
+        pass
+
     execute_from_command_line(sys.argv)
+
+
+
+
