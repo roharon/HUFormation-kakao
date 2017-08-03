@@ -1,9 +1,12 @@
-from django.views.decorators.csrf import csrf_exempt
-from django.http import JsonResponse
-import json, datetime, time
+import datetime
+import json
 import sqlite3
-from . import haksik_crawl
+import time
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+from . import haksik_db_to
 from . import library_crawl
+
 
 # from bs4 import BeautifulSoup
 
@@ -293,8 +296,8 @@ def message(request):
                 }
             })
 
-    elif content_name in ('인문관', '교수회관', '스카이 라운지'):
-            text = str(today_date) + ' ' + content_name + '의 메뉴\n' + str(haksik_crawl.seo_crawl(content_name))
+    elif content_name in ('인문관', '교수회관', '스카이 라운지', '후생관', '어문관', '기숙사 식당', '교직원 식당', '국제사회교육원'):
+            text = str(today_date) + ' ' + content_name + '의 메뉴\n' + str(haksik_db_to.db_send(content_name))
             end_time = time.time()
             print(end_time - start_time)
             return JsonResponse({
@@ -306,20 +309,6 @@ def message(request):
                     'buttons': button_info
                 }
             })
-
-    elif content_name in ('후생관', '어문관', '기숙사 식당', '교직원 식당', '국제사회교육원'):
-        text = str(today_date) + ' ' + content_name + '의 메뉴\n' + str(haksik_crawl.glo_crawl(content_name))
-        end_time = time.time()
-        print(end_time - start_time)
-        return JsonResponse({
-            'message': {
-                'text': text
-                },
-            'keyboard': {
-                'type': 'buttons',
-                'buttons': button_info
-            }
-    })
     else:
         mess = "이걸 보고계시다면 오류입니다, 개발자에게 알려주세요"
         if content_type == 'photo':
