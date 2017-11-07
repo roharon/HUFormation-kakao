@@ -1,0 +1,6 @@
+beautifulsoup4 (4.6.0)
+bs4 (0.0.1)
+Django (1.11.2)
+lxml (3.8.0)
+requests (2.18.1)
+random

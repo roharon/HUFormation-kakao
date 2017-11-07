@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<head>
+    <title>훕포메이션 이미지식단</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/earlyaccess/nanumgothic.css">
+    {% load staticfiles %}
+    <style>
+        body {
+            font-family: 'Nanum Gothic', serif;
+            font-size: 16px;
+
+            background: white;
+        }
+
+        th {
+            background-color: #003050;
+            color: white;
+        }
+        h2{
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2><strong>후생관</strong></h2>
+    <table class="table table-striped" style="width: 100%">
+        <thead>
+        <tr>
+            <th>메뉴 1</th>
+            <th>메뉴 2</th>
+            <th>메뉴 3</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>{{menu.hooseng_today_menu0}}</td>
+            <td>{{menu.hooseng_today_menu1}}</td>
+            <td>{{menu.hooseng_today_menu2}}</td>
+        </tr>
+        <tr>
+            <td>{{menu.hooseng_today_price0}}</td>
+            <td>{{menu.hooseng_today_price1}}</td>
+            <td>{{menu.hooseng_today_price2}}</td>
+        </tr>
+        </tbody>
+        </table>
+    <h2><strong>기숙사 식당</strong></h2>
+    <table class="table table-striped" style="width: 100%">
+        <thead>
+        <tr>
+            <th>일반</th>
+            <th>특식</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>{{ menu.hufsdorm_today_menu0 }}</td>
+            <td><strong>{{ menu.hufsdorm_today_menu1 }}</strong></td>
+        </tr>
+        <tr>
+            <td>{{ menu.hufsdorm_today_price0 }}</td>
+            <td><strong>{{ menu.hufsdorm_today_price1 }}</strong></td>
+        </tr>
+        </tbody>
+    </table>
+
+
+    <h2><strong>어문관 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 교직원식당</strong></h2>
+    <table class="table table-striped" style="width: 100%">
+        <thead>
+        <tr>
+            <th>메뉴1</th>
+            <th>메뉴2</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>{{ menu.umoon_today_menu0 }}</td>
+            <td>{{ menu.gyojik_today_menu0 }}</td>
+        </tr>
+        <tr>
+            <td>{{ menu.umoon_today_price0 }}</td>
+            <td>{{ menu.gyojik_today_price0 }}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>

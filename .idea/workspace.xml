@@ -1,0 +1,1359 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="9953d7d4-2242-4f2f-9324-9de6e7c80a23" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DB/data.db" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/DB/userdata.db" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/hufscoops/haksik_upload.py" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DB/haksik_data.db" afterPath="$PROJECT_DIR$/DB/haksik_data.db" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DB/tomorrow_haksik_data.db" afterPath="$PROJECT_DIR$/DB/tomorrow_haksik_data.db" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/facebook_upload/upload.py" afterPath="$PROJECT_DIR$/facebook_upload/upload.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/haksik_upload.py" afterPath="$PROJECT_DIR$/haksik_upload.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hufscoops/app_urls.py" afterPath="$PROJECT_DIR$/hufscoops/app_urls.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hufscoops/haksik_pre.py" afterPath="$PROJECT_DIR$/hufscoops/haksik_pre.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hufscoops/haksik_table_make.py" afterPath="$PROJECT_DIR$/hufscoops/haksik_table_make.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hufscoops/templates/glo_haksik_table.html" afterPath="$PROJECT_DIR$/hufscoops/templates/glo_haksik_table.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hufscoops/templates/index.html" afterPath="$PROJECT_DIR$/hufscoops/templates/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hufscoops/templates/seo_haksik_table.html" afterPath="$PROJECT_DIR$/hufscoops/templates/seo_haksik_table.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hufscoops/views.py" afterPath="$PROJECT_DIR$/hufscoops/views.py" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/HUFormation$test.coverage" NAME="test Coverage Results" MODIFIED="1509959508446" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/hufscoops" />
+    <SUITE FILE_PATH="coverage/HUFormation$haksik_upload.coverage" NAME="haksik_upload Coverage Results" MODIFIED="1509952254677" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/HUFormation$gioonghyung.coverage" NAME="gioonghyung Coverage Results" MODIFIED="1507290846027" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/HUFormation$haksik_pre.coverage" NAME="haksik_pre Coverage Results" MODIFIED="1509960893382" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/hufscoops" />
+    <SUITE FILE_PATH="coverage/HUFormation$upload.coverage" NAME="upload Coverage Results" MODIFIED="1503067336222" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/facebook_upload" />
+    <SUITE FILE_PATH="coverage/HUFormation$haksik_table_make.coverage" NAME="haksik_table_make Coverage Results" MODIFIED="1507275740361" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/hufscoops" />
+    <SUITE FILE_PATH="coverage/HUFormation$jieu.coverage" NAME="jieu Coverage Results" MODIFIED="1507551616997" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/HUFormation$sugang.coverage" NAME="sugang Coverage Results" MODIFIED="1505384853693" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../sugang" />
+    <SUITE FILE_PATH="coverage/HUFormation$gioongbro.coverage" NAME="gioongbro Coverage Results" MODIFIED="1507382673528" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+  </component>
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
+      <file leaf-file-name="upload.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/facebook_upload/upload.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="506">
+              <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hufscoops/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="16146">
+              <caret line="702" column="28" lean-forward="false" selection-start-line="702" selection-start-column="28" selection-end-line="702" selection-end-column="28" />
+              <folding>
+                <element signature="e#0#35#0" expanded="true" />
+                <marker date="1509975260414" expanded="true" signature="1847:1889" ph="DELETE FROM " />
+                <marker date="1509975260414" expanded="true" signature="1934:1982" ph="INSERT into user_data... " />
+                <marker date="1509975260414" expanded="true" signature="2318:2367" ph="SELECT Campu... user_data" />
+                <marker date="1509975260414" expanded="true" signature="2699:2748" ph="SELECT Campu... user_data" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hufscoops/templates/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="368">
+              <caret line="46" column="10" lean-forward="true" selection-start-line="46" selection-start-column="10" selection-end-line="46" selection-end-column="10" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="haksik_table_make.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hufscoops/haksik_table_make.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="6762">
+              <caret line="296" column="20" lean-forward="false" selection-start-line="296" selection-start-column="20" selection-end-line="296" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="haksik_upload.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/haksik_upload.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="4324">
+              <caret line="192" column="0" lean-forward="false" selection-start-line="192" selection-start-column="0" selection-end-line="192" selection-end-column="0" />
+              <folding>
+                <marker date="1509946912833" expanded="true" signature="1259:1274" ph="DELETE FROM " />
+                <marker date="1509946912833" expanded="true" signature="1298:1313" ph="DELETE FROM " />
+                <marker date="1509946912833" expanded="true" signature="1337:1352" ph="DELETE FROM " />
+                <marker date="1509946912833" expanded="true" signature="1376:1391" ph="DELETE FROM " />
+                <marker date="1509946912833" expanded="true" signature="1415:1434" ph="DELETE FROM " />
+                <marker date="1509946912833" expanded="true" signature="1459:1474" ph="DELETE FROM " />
+                <marker date="1509946912833" expanded="true" signature="1498:1514" ph="DELETE FROM " />
+                <marker date="1509946912833" expanded="true" signature="1538:1556" ph="DELETE FROM " />
+                <marker date="1509946912833" expanded="true" signature="1682:1739" ph="CREATE TABLE... 후생관" />
+                <marker date="1509946912833" expanded="true" signature="1764:1821" ph="CREATE TABLE... 어문관" />
+                <marker date="1509946912833" expanded="true" signature="1846:1903" ph="CREATE TABLE... 기숙사" />
+                <marker date="1509946912833" expanded="true" signature="1928:1985" ph="CREATE TABLE... 교직원" />
+                <marker date="1509946912833" expanded="true" signature="2010:2071" ph="CREATE TABLE... 국제사회교육원" />
+                <marker date="1509946912833" expanded="true" signature="2097:2154" ph="CREATE TABLE... 인문관" />
+                <marker date="1509946912833" expanded="true" signature="2179:2237" ph="CREATE TABLE... 교수회관" />
+                <marker date="1509946912833" expanded="true" signature="2262:2322" ph="CREATE TABLE... 스카이라운지" />
+                <marker date="1509946912833" expanded="true" signature="2669:2724" ph="INSERT INTO 후생관... " />
+                <marker date="1509946912833" expanded="true" signature="2846:2901" ph="INSERT INTO 후생관... " />
+                <marker date="1509946912833" expanded="true" signature="2967:3022" ph="INSERT INTO 후생관... " />
+                <marker date="1509946912833" expanded="true" signature="3118:3173" ph="INSERT INTO 후생관... " />
+                <marker date="1509946912833" expanded="true" signature="3287:3342" ph="INSERT INTO 후생관... " />
+                <marker date="1509946912833" expanded="true" signature="3408:3463" ph="INSERT INTO 후생관... " />
+                <marker date="1509946912833" expanded="true" signature="3613:3668" ph="INSERT INTO 후생관... " />
+                <marker date="1509946912833" expanded="true" signature="3813:3868" ph="INSERT INTO 후생관... " />
+                <marker date="1509946912833" expanded="true" signature="3976:4031" ph="INSERT INTO 후생관... " />
+                <marker date="1509946912833" expanded="true" signature="4097:4152" ph="INSERT INTO 후생관... " />
+                <marker date="1509946912833" expanded="true" signature="4243:4298" ph="INSERT INTO 후생관... " />
+                <marker date="1509946912833" expanded="true" signature="4349:4404" ph="INSERT INTO 후생관... " />
+                <marker date="1509946912833" expanded="true" signature="4463:4518" ph="INSERT INTO 어문관... " />
+                <marker date="1509946912833" expanded="true" signature="4680:4735" ph="INSERT INTO 기숙사... " />
+                <marker date="1509946912833" expanded="true" signature="4796:4851" ph="INSERT INTO 기숙사... " />
+                <marker date="1509946912833" expanded="true" signature="4930:4985" ph="INSERT INTO 기숙사... " />
+                <marker date="1509946912833" expanded="true" signature="5046:5101" ph="INSERT INTO 기숙사... " />
+                <marker date="1509946912833" expanded="true" signature="5207:5262" ph="INSERT INTO 기숙사... " />
+                <marker date="1509946912833" expanded="true" signature="5323:5378" ph="INSERT INTO 기숙사... " />
+                <marker date="1509946912833" expanded="true" signature="5452:5507" ph="INSERT INTO 기숙사... " />
+                <marker date="1509946912833" expanded="true" signature="5568:5623" ph="INSERT INTO 기숙사... " />
+                <marker date="1509946912833" expanded="true" signature="5712:5767" ph="INSERT INTO 기숙사... " />
+                <marker date="1509946912833" expanded="true" signature="5824:5879" ph="INSERT INTO 기숙사... " />
+                <marker date="1509946912833" expanded="true" signature="5985:6040" ph="INSERT INTO 기숙사... " />
+                <marker date="1509946912833" expanded="true" signature="6101:6156" ph="INSERT INTO 기숙사... " />
+                <marker date="1509946912833" expanded="true" signature="6225:6280" ph="INSERT INTO 기숙사... " />
+                <marker date="1509946912833" expanded="true" signature="6330:6385" ph="INSERT INTO 교직원... " />
+                <marker date="1509946912833" expanded="true" signature="6440:6499" ph="INSERT INTO 국제사회교육원... " />
+                <marker date="1509946912833" expanded="true" signature="6586:6641" ph="INSERT INTO 인문관... " />
+                <marker date="1509946912833" expanded="true" signature="6693:6749" ph="INSERT INTO 교수회관... " />
+                <marker date="1509946912833" expanded="true" signature="6790:6848" ph="INSERT INTO 스카이라운지... " />
+                <marker date="1509946912833" expanded="true" signature="6886:6944" ph="INSERT INTO 스카이라운지... " />
+                <marker date="1509946912833" expanded="true" signature="6992:7047" ph="INSERT INTO 인문관... " />
+                <marker date="1509946912833" expanded="true" signature="7106:7161" ph="INSERT INTO 인문관... " />
+                <marker date="1509946912833" expanded="true" signature="7206:7261" ph="INSERT INTO 인문관... " />
+                <marker date="1509946912833" expanded="true" signature="7306:7362" ph="INSERT INTO 교수회관... " />
+                <marker date="1509946912833" expanded="true" signature="7414:7472" ph="INSERT INTO 스카이라운지... " />
+                <marker date="1509946912833" expanded="true" signature="7521:7579" ph="INSERT INTO 스카이라운지... " />
+                <marker date="1509946912833" expanded="true" signature="8348:8363" ph="DELETE FROM " />
+                <marker date="1509946912833" expanded="true" signature="8387:8402" ph="DELETE FROM " />
+                <marker date="1509946912833" expanded="true" signature="8426:8441" ph="DELETE FROM " />
+                <marker date="1509946912833" expanded="true" signature="8465:8480" ph="DELETE FROM " />
+                <marker date="1509946912833" expanded="true" signature="8504:8523" ph="DELETE FROM " />
+                <marker date="1509946912833" expanded="true" signature="8548:8563" ph="DELETE FROM " />
+                <marker date="1509946912833" expanded="true" signature="8587:8603" ph="DELETE FROM " />
+                <marker date="1509946912833" expanded="true" signature="8627:8645" ph="DELETE FROM " />
+                <marker date="1509946912833" expanded="true" signature="8771:8828" ph="CREATE TABLE... 후생관" />
+                <marker date="1509946912833" expanded="true" signature="8853:8910" ph="CREATE TABLE... 어문관" />
+                <marker date="1509946912833" expanded="true" signature="8935:8992" ph="CREATE TABLE... 기숙사" />
+                <marker date="1509946912833" expanded="true" signature="9017:9074" ph="CREATE TABLE... 교직원" />
+                <marker date="1509946912833" expanded="true" signature="9099:9160" ph="CREATE TABLE... 국제사회교육원" />
+                <marker date="1509946912833" expanded="true" signature="9186:9243" ph="CREATE TABLE... 인문관" />
+                <marker date="1509946912833" expanded="true" signature="9268:9326" ph="CREATE TABLE... 교수회관" />
+                <marker date="1509946912833" expanded="true" signature="9351:9411" ph="CREATE TABLE... 스카이라운지" />
+                <marker date="1509946912833" expanded="true" signature="10206:10261" ph="INSERT INTO 후생관... " />
+                <marker date="1509946912833" expanded="true" signature="10383:10438" ph="INSERT INTO 후생관... " />
+                <marker date="1509946912833" expanded="true" signature="10504:10559" ph="INSERT INTO 후생관... " />
+                <marker date="1509946912833" expanded="true" signature="10655:10710" ph="INSERT INTO 후생관... " />
+                <marker date="1509946912833" expanded="true" signature="10824:10879" ph="INSERT INTO 후생관... " />
+                <marker date="1509946912833" expanded="true" signature="10945:11000" ph="INSERT INTO 후생관... " />
+                <marker date="1509946912833" expanded="true" signature="11150:11205" ph="INSERT INTO 후생관... " />
+                <marker date="1509946912833" expanded="true" signature="11350:11405" ph="INSERT INTO 후생관... " />
+                <marker date="1509946912833" expanded="true" signature="11513:11568" ph="INSERT INTO 후생관... " />
+                <marker date="1509946912833" expanded="true" signature="11634:11689" ph="INSERT INTO 후생관... " />
+                <marker date="1509946912833" expanded="true" signature="11780:11835" ph="INSERT INTO 후생관... " />
+                <marker date="1509946912833" expanded="true" signature="11886:11941" ph="INSERT INTO 후생관... " />
+                <marker date="1509946912833" expanded="true" signature="12000:12055" ph="INSERT INTO 어문관... " />
+                <marker date="1509946912833" expanded="true" signature="12217:12272" ph="INSERT INTO 기숙사... " />
+                <marker date="1509946912833" expanded="true" signature="12333:12388" ph="INSERT INTO 기숙사... " />
+                <marker date="1509946912833" expanded="true" signature="12467:12522" ph="INSERT INTO 기숙사... " />
+                <marker date="1509946912833" expanded="true" signature="12583:12638" ph="INSERT INTO 기숙사... " />
+                <marker date="1509946912833" expanded="true" signature="12744:12799" ph="INSERT INTO 기숙사... " />
+                <marker date="1509946912833" expanded="true" signature="12860:12915" ph="INSERT INTO 기숙사... " />
+                <marker date="1509946912833" expanded="true" signature="12989:13044" ph="INSERT INTO 기숙사... " />
+                <marker date="1509946912833" expanded="true" signature="13105:13160" ph="INSERT INTO 기숙사... " />
+                <marker date="1509946912833" expanded="true" signature="13249:13304" ph="INSERT INTO 기숙사... " />
+                <marker date="1509946912833" expanded="true" signature="13361:13416" ph="INSERT INTO 기숙사... " />
+                <marker date="1509946912833" expanded="true" signature="13522:13577" ph="INSERT INTO 기숙사... " />
+                <marker date="1509946912833" expanded="true" signature="13638:13693" ph="INSERT INTO 기숙사... " />
+                <marker date="1509946912833" expanded="true" signature="13762:13817" ph="INSERT INTO 기숙사... " />
+                <marker date="1509946912833" expanded="true" signature="13867:13922" ph="INSERT INTO 교직원... " />
+                <marker date="1509946912833" expanded="true" signature="13977:14036" ph="INSERT INTO 국제사회교육원... " />
+                <marker date="1509946912833" expanded="true" signature="14123:14178" ph="INSERT INTO 인문관... " />
+                <marker date="1509946912833" expanded="true" signature="14230:14286" ph="INSERT INTO 교수회관... " />
+                <marker date="1509946912833" expanded="true" signature="14327:14385" ph="INSERT INTO 스카이라운지... " />
+                <marker date="1509946912833" expanded="true" signature="14423:14481" ph="INSERT INTO 스카이라운지... " />
+                <marker date="1509946912833" expanded="true" signature="14529:14584" ph="INSERT INTO 인문관... " />
+                <marker date="1509946912833" expanded="true" signature="14643:14698" ph="INSERT INTO 인문관... " />
+                <marker date="1509946912833" expanded="true" signature="14743:14798" ph="INSERT INTO 인문관... " />
+                <marker date="1509946912833" expanded="true" signature="14843:14899" ph="INSERT INTO 교수회관... " />
+                <marker date="1509946912833" expanded="true" signature="14951:15009" ph="INSERT INTO 스카이라운지... " />
+                <marker date="1509946912833" expanded="true" signature="15058:15116" ph="INSERT INTO 스카이라운지... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="haksik_pre.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hufscoops/haksik_pre.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1978">
+              <caret line="88" column="24" lean-forward="false" selection-start-line="88" selection-start-column="24" selection-end-line="88" selection-end-column="24" />
+              <folding>
+                <element signature="e#0#29#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="glo_haksik_table.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hufscoops/templates/glo_haksik_table.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="851">
+              <caret line="37" column="20" lean-forward="false" selection-start-line="37" selection-start-column="20" selection-end-line="37" selection-end-column="20" />
+              <folding>
+                <element signature="n#style#0;n#table#0;n#div#0;n#body#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#table#1;n#div#0;n#body#0;n#!!top" expanded="true" />
+                <element signature="e#2132#2138#0#HTML" expanded="true" />
+                <element signature="e#2138#2144#0#HTML" expanded="true" />
+                <element signature="e#2144#2150#0#HTML" expanded="true" />
+                <element signature="e#2150#2156#0#HTML" expanded="true" />
+                <element signature="e#2156#2162#0#HTML" expanded="true" />
+                <element signature="e#2162#2168#0#HTML" expanded="true" />
+                <element signature="e#2168#2174#0#HTML" expanded="true" />
+                <element signature="e#2174#2180#0#HTML" expanded="true" />
+                <element signature="e#2180#2186#0#HTML" expanded="true" />
+                <element signature="n#style#0;n#table#2;n#div#0;n#body#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="seo_haksik_table.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hufscoops/templates/seo_haksik_table.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1058">
+              <caret line="46" column="57" lean-forward="false" selection-start-line="46" selection-start-column="57" selection-end-line="46" selection-end-column="57" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hufscoops_project/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="460">
+              <caret line="21" column="45" lean-forward="false" selection-start-line="21" selection-start-column="45" selection-end-line="21" selection-end-column="45" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app_urls.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hufscoops/app_urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="184">
+              <caret line="10" column="38" lean-forward="false" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="38" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>menu</find>
+      <find>선택식</find>
+      <find>Log</find>
+      <find>create_menu_db_table</find>
+      <find>Menu</find>
+      <find>seo_post</find>
+      <find>to_se</find>
+      <find>print</find>
+      <find>render</find>
+      <find>seoul</find>
+      <find>static</find>
+      <find>inmoon</find>
+      <find>%Y</find>
+      <find>%y</find>
+      <find>%m</find>
+      <find>strftime</find>
+      <find>png</find>
+      <find>['후생관', '어문관', '기숙사 식당', '교직원 식당', '국제사회교육원']</find>
+      <find>['=후생관=', '=어문관=', '=기숙사 식당=', '=교직원 식당=', '=국제사회교육원=']</find>
+      <find>['인문관', '교수회관', '스카이 라운지']</find>
+      <find>인문관</find>
+      <find>days</find>
+      <find>delta</find>
+      <find>timedel</find>
+      <find>tomorrow</find>
+      <find>get_we</find>
+      <find>con</find>
+      <find>analy</find>
+      <find>기숙사</find>
+      <find>이미지</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GithubProjectSettings">
+    <option name="CREATE_PULL_REQUEST_DEFAULT_BRANCH" value="master" />
+    <option name="CREATE_PULL_REQUEST_DEFAULT_REPO_USER" value="roharon" />
+    <option name="CREATE_PULL_REQUEST_DEFAULT_REPO_NAME" value="huformation" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/facebook_upload/make_image.py" />
+        <option value="$PROJECT_DIR$/hufscoops_project/settings.py" />
+        <option value="$PROJECT_DIR$/hufscoops_project/urls.py" />
+        <option value="$PROJECT_DIR$/hufscoops/models.py" />
+        <option value="$PROJECT_DIR$/hufscoops/haksik_db_to.py" />
+        <option value="$PROJECT_DIR$/../untitled1/app/views.py" />
+        <option value="$PROJECT_DIR$/hufscoops/admin.py" />
+        <option value="$PROJECT_DIR$/hufscoops/templates/img.html" />
+        <option value="$PROJECT_DIR$/gioonghyung.py" />
+        <option value="$PROJECT_DIR$/gioongbro.py" />
+        <option value="$PROJECT_DIR$/jieu.py" />
+        <option value="$PROJECT_DIR$/hufscoops/haksik_upload.py" />
+        <option value="$PROJECT_DIR$/hufscoops/templates/seo_haksik_table.html" />
+        <option value="$PROJECT_DIR$/haksik_upload.py" />
+        <option value="$PROJECT_DIR$/test.py" />
+        <option value="$PROJECT_DIR$/hufscoops/haksik_pre.py" />
+        <option value="$PROJECT_DIR$/hufscoops/app_urls.py" />
+        <option value="$PROJECT_DIR$/hufscoops/haksik_table_make.py" />
+        <option value="$PROJECT_DIR$/hufscoops/templates/glo_haksik_table.html" />
+        <option value="$PROJECT_DIR$/hufscoops/views.py" />
+        <option value="$PROJECT_DIR$/hufscoops/templates/index.html" />
+        <option value="$PROJECT_DIR$/facebook_upload/upload.py" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1096" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HUFormation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HUFormation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HUFormation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HUFormation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hufscoops_project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HUFormation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HUFormation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hufscoops" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HUFormation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HUFormation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hufscoops" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HUFormation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HUFormation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="facebook_upload" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HUFormation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HUFormation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DB" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scratches" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="js.eslint.eslintPackage" value="" />
+    <property name="nodejs_interpreter_path" value="D:/nodejs/node" />
+    <property name="js-jscs-nodeInterpreter" value="D:\nodejs\node.exe" />
+  </component>
+  <component name="PyConsoleOptionsProvider">
+    <option name="myPythonConsoleState">
+      <console-settings is-module-sdk="true">
+        <option name="myUseModuleSdk" value="true" />
+      </console-settings>
+    </option>
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\MyProject\HUFormation\assets\img" />
+      <recent name="D:\MyProject\HUFormation\hufscoops\templates" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Django server.HUFormation">
+    <configuration default="false" name="gioongbro" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="D:\anaconda\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="HUFormation" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/gioongbro.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="jieu" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="HUFormation" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/jieu.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="test" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="D:\anaconda\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/hufscoops" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="HUFormation" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/hufscoops/haksik_table_make.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="haksik_upload" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="HUFormation" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/haksik_upload.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="haksik_pre" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/hufscoops" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="HUFormation" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/hufscoops/haksik_pre.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="DjangoTestsConfigurationType" factoryName="Django tests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="HUFormation" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="TARGET" value="" />
+      <option name="SETTINGS_FILE" value="" />
+      <option name="CUSTOM_SETTINGS" value="false" />
+      <option name="USE_OPTIONS" value="false" />
+      <option name="OPTIONS" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerProtractor" factoryName="Protractor">
+      <config-file value="" />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="PyBehaveRunConfigurationType" factoryName="Behave">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="HUFormation" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="ADDITIONAL_ARGS" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="PyLettuceRunConfigurationType" factoryName="Lettuce">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="HUFormation" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="ADDITIONAL_ARGS" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Python.DjangoServer" factoryName="Django server">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="HUFormation" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="HUFormation" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Tox" factoryName="Tox">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <module name="HUFormation" />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run" />
+      <scripts />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Attests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="HUFormation" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Doctests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="HUFormation" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Nosetests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="HUFormation" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="PARAMS" value="" />
+      <option name="USE_PARAM" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Unittests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="HUFormation" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="PUREUNITTEST" value="true" />
+      <option name="PARAMS" value="" />
+      <option name="USE_PARAM" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="py.test">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="HUFormation" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="testToRun" value="" />
+      <option name="keywords" value="" />
+      <option name="params" value="" />
+      <option name="USE_PARAM" value="false" />
+      <option name="USE_KEYWORD" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="HUFormation" type="Python.DjangoServer" factoryName="Django server">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DJANGO_SETTINGS_MODULE" value="hufscoops_project.settings" />
+      </envs>
+      <option name="SDK_HOME" value="D:\anaconda\python.exe" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="HUFormation" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+      <method />
+    </configuration>
+    <list size="6">
+      <item index="0" class="java.lang.String" itemvalue="Django server.HUFormation" />
+      <item index="1" class="java.lang.String" itemvalue="Python.gioongbro" />
+      <item index="2" class="java.lang.String" itemvalue="Python.jieu" />
+      <item index="3" class="java.lang.String" itemvalue="Python.test" />
+      <item index="4" class="java.lang.String" itemvalue="Python.haksik_upload" />
+      <item index="5" class="java.lang.String" itemvalue="Python.haksik_pre" />
+    </list>
+    <recent_temporary>
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="Python.haksik_pre" />
+        <item index="1" class="java.lang.String" itemvalue="Python.test" />
+        <item index="2" class="java.lang.String" itemvalue="Python.haksik_upload" />
+        <item index="3" class="java.lang.String" itemvalue="Python.jieu" />
+        <item index="4" class="java.lang.String" itemvalue="Python.gioongbro" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9953d7d4-2242-4f2f-9324-9de6e7c80a23" name="Default" comment="" />
+      <created>1502968032329</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1502968032329</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1096" extended-state="0" />
+    <editor active="false" />
+    <layout>
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13052858" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2743644" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="REST Client" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36736843" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1556837" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="CSS Styles" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32944915" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="processedProjectFiles" value="true" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/hufscoops/views.py</url>
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="1" />
+    </breakpoint-manager>
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/hufscoops_project/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="14" column="3" lean-forward="false" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hufscoops_project/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hufscoops/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hufscoops/templates/seo_haksik_table.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="16" column="25" lean-forward="false" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hufscoops/haksik_table_make.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2024">
+          <caret line="88" column="20" lean-forward="false" selection-start-line="88" selection-start-column="20" selection-end-line="88" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hufscoops/app_urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hufscoops/haksik_upload.py" />
+    <entry file="file://$PROJECT_DIR$/hufscoops/templates/glo_haksik_table.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/img/img.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/facebook_upload/upload.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="16" column="11" lean-forward="true" selection-start-line="16" selection-start-column="11" selection-end-line="16" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/facebook_upload/make_image.py" />
+    <entry file="file://$PROJECT_DIR$/hufscoops_project/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="14" column="3" lean-forward="false" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hufscoops_project/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hufscoops/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hufscoops/templates/seo_haksik_table.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="897">
+          <caret line="39" column="8" lean-forward="false" selection-start-line="39" selection-start-column="8" selection-end-line="39" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hufscoops/haksik_table_make.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="14" column="22" lean-forward="true" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hufscoops_project/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="14" column="3" lean-forward="true" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hufscoops_project/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hufscoops/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hufscoops/haksik_crawl.py" />
+    <entry file="file://$PROJECT_DIR$/hufscoops/apps.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../untitled1/app/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../untitled1/app/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="19" column="50" lean-forward="true" selection-start-line="19" selection-start-column="50" selection-end-line="19" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../untitled1/app/templates/email.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-483">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../sugang/sugang.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hufscoops/templates/img.html" />
+    <entry file="file://$PROJECT_DIR$/../untitled1/app/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="29" column="29" lean-forward="false" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hufscoops_project/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="129" column="33" lean-forward="false" selection-start-line="129" selection-start-column="28" selection-end-line="129" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/facebook_upload/make_image.py" />
+    <entry file="file://$PROJECT_DIR$/gioonghyung.py" />
+    <entry file="file://$PROJECT_DIR$/gioongbro.py" />
+    <entry file="file://$PROJECT_DIR$/jieu.py" />
+    <entry file="file://$PROJECT_DIR$/assets/img/img.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hufscoops/haksik_upload.py" />
+    <entry file="file://$PROJECT_DIR$/hufscoops/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hufscoops/tests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hufscoops/library_crawl.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hufscoops/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="14" column="55" lean-forward="false" selection-start-line="14" selection-start-column="55" selection-end-line="14" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.py" />
+    <entry file="file://$PROJECT_DIR$/DB/haksik_data.db">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hufscoops/haksik_db_to.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2921">
+          <caret line="129" column="11" lean-forward="false" selection-start-line="129" selection-start-column="11" selection-end-line="129" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/haksik_upload.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4324">
+          <caret line="192" column="0" lean-forward="false" selection-start-line="192" selection-start-column="0" selection-end-line="192" selection-end-column="0" />
+          <folding>
+            <marker date="1509946912833" expanded="true" signature="1259:1274" ph="DELETE FROM " />
+            <marker date="1509946912833" expanded="true" signature="1298:1313" ph="DELETE FROM " />
+            <marker date="1509946912833" expanded="true" signature="1337:1352" ph="DELETE FROM " />
+            <marker date="1509946912833" expanded="true" signature="1376:1391" ph="DELETE FROM " />
+            <marker date="1509946912833" expanded="true" signature="1415:1434" ph="DELETE FROM " />
+            <marker date="1509946912833" expanded="true" signature="1459:1474" ph="DELETE FROM " />
+            <marker date="1509946912833" expanded="true" signature="1498:1514" ph="DELETE FROM " />
+            <marker date="1509946912833" expanded="true" signature="1538:1556" ph="DELETE FROM " />
+            <marker date="1509946912833" expanded="true" signature="1682:1739" ph="CREATE TABLE... 후생관" />
+            <marker date="1509946912833" expanded="true" signature="1764:1821" ph="CREATE TABLE... 어문관" />
+            <marker date="1509946912833" expanded="true" signature="1846:1903" ph="CREATE TABLE... 기숙사" />
+            <marker date="1509946912833" expanded="true" signature="1928:1985" ph="CREATE TABLE... 교직원" />
+            <marker date="1509946912833" expanded="true" signature="2010:2071" ph="CREATE TABLE... 국제사회교육원" />
+            <marker date="1509946912833" expanded="true" signature="2097:2154" ph="CREATE TABLE... 인문관" />
+            <marker date="1509946912833" expanded="true" signature="2179:2237" ph="CREATE TABLE... 교수회관" />
+            <marker date="1509946912833" expanded="true" signature="2262:2322" ph="CREATE TABLE... 스카이라운지" />
+            <marker date="1509946912833" expanded="true" signature="2669:2724" ph="INSERT INTO 후생관... " />
+            <marker date="1509946912833" expanded="true" signature="2846:2901" ph="INSERT INTO 후생관... " />
+            <marker date="1509946912833" expanded="true" signature="2967:3022" ph="INSERT INTO 후생관... " />
+            <marker date="1509946912833" expanded="true" signature="3118:3173" ph="INSERT INTO 후생관... " />
+            <marker date="1509946912833" expanded="true" signature="3287:3342" ph="INSERT INTO 후생관... " />
+            <marker date="1509946912833" expanded="true" signature="3408:3463" ph="INSERT INTO 후생관... " />
+            <marker date="1509946912833" expanded="true" signature="3613:3668" ph="INSERT INTO 후생관... " />
+            <marker date="1509946912833" expanded="true" signature="3813:3868" ph="INSERT INTO 후생관... " />
+            <marker date="1509946912833" expanded="true" signature="3976:4031" ph="INSERT INTO 후생관... " />
+            <marker date="1509946912833" expanded="true" signature="4097:4152" ph="INSERT INTO 후생관... " />
+            <marker date="1509946912833" expanded="true" signature="4243:4298" ph="INSERT INTO 후생관... " />
+            <marker date="1509946912833" expanded="true" signature="4349:4404" ph="INSERT INTO 후생관... " />
+            <marker date="1509946912833" expanded="true" signature="4463:4518" ph="INSERT INTO 어문관... " />
+            <marker date="1509946912833" expanded="true" signature="4680:4735" ph="INSERT INTO 기숙사... " />
+            <marker date="1509946912833" expanded="true" signature="4796:4851" ph="INSERT INTO 기숙사... " />
+            <marker date="1509946912833" expanded="true" signature="4930:4985" ph="INSERT INTO 기숙사... " />
+            <marker date="1509946912833" expanded="true" signature="5046:5101" ph="INSERT INTO 기숙사... " />
+            <marker date="1509946912833" expanded="true" signature="5207:5262" ph="INSERT INTO 기숙사... " />
+            <marker date="1509946912833" expanded="true" signature="5323:5378" ph="INSERT INTO 기숙사... " />
+            <marker date="1509946912833" expanded="true" signature="5452:5507" ph="INSERT INTO 기숙사... " />
+            <marker date="1509946912833" expanded="true" signature="5568:5623" ph="INSERT INTO 기숙사... " />
+            <marker date="1509946912833" expanded="true" signature="5712:5767" ph="INSERT INTO 기숙사... " />
+            <marker date="1509946912833" expanded="true" signature="5824:5879" ph="INSERT INTO 기숙사... " />
+            <marker date="1509946912833" expanded="true" signature="5985:6040" ph="INSERT INTO 기숙사... " />
+            <marker date="1509946912833" expanded="true" signature="6101:6156" ph="INSERT INTO 기숙사... " />
+            <marker date="1509946912833" expanded="true" signature="6225:6280" ph="INSERT INTO 기숙사... " />
+            <marker date="1509946912833" expanded="true" signature="6330:6385" ph="INSERT INTO 교직원... " />
+            <marker date="1509946912833" expanded="true" signature="6440:6499" ph="INSERT INTO 국제사회교육원... " />
+            <marker date="1509946912833" expanded="true" signature="6586:6641" ph="INSERT INTO 인문관... " />
+            <marker date="1509946912833" expanded="true" signature="6693:6749" ph="INSERT INTO 교수회관... " />
+            <marker date="1509946912833" expanded="true" signature="6790:6848" ph="INSERT INTO 스카이라운지... " />
+            <marker date="1509946912833" expanded="true" signature="6886:6944" ph="INSERT INTO 스카이라운지... " />
+            <marker date="1509946912833" expanded="true" signature="6992:7047" ph="INSERT INTO 인문관... " />
+            <marker date="1509946912833" expanded="true" signature="7106:7161" ph="INSERT INTO 인문관... " />
+            <marker date="1509946912833" expanded="true" signature="7206:7261" ph="INSERT INTO 인문관... " />
+            <marker date="1509946912833" expanded="true" signature="7306:7362" ph="INSERT INTO 교수회관... " />
+            <marker date="1509946912833" expanded="true" signature="7414:7472" ph="INSERT INTO 스카이라운지... " />
+            <marker date="1509946912833" expanded="true" signature="7521:7579" ph="INSERT INTO 스카이라운지... " />
+            <marker date="1509946912833" expanded="true" signature="8348:8363" ph="DELETE FROM " />
+            <marker date="1509946912833" expanded="true" signature="8387:8402" ph="DELETE FROM " />
+            <marker date="1509946912833" expanded="true" signature="8426:8441" ph="DELETE FROM " />
+            <marker date="1509946912833" expanded="true" signature="8465:8480" ph="DELETE FROM " />
+            <marker date="1509946912833" expanded="true" signature="8504:8523" ph="DELETE FROM " />
+            <marker date="1509946912833" expanded="true" signature="8548:8563" ph="DELETE FROM " />
+            <marker date="1509946912833" expanded="true" signature="8587:8603" ph="DELETE FROM " />
+            <marker date="1509946912833" expanded="true" signature="8627:8645" ph="DELETE FROM " />
+            <marker date="1509946912833" expanded="true" signature="8771:8828" ph="CREATE TABLE... 후생관" />
+            <marker date="1509946912833" expanded="true" signature="8853:8910" ph="CREATE TABLE... 어문관" />
+            <marker date="1509946912833" expanded="true" signature="8935:8992" ph="CREATE TABLE... 기숙사" />
+            <marker date="1509946912833" expanded="true" signature="9017:9074" ph="CREATE TABLE... 교직원" />
+            <marker date="1509946912833" expanded="true" signature="9099:9160" ph="CREATE TABLE... 국제사회교육원" />
+            <marker date="1509946912833" expanded="true" signature="9186:9243" ph="CREATE TABLE... 인문관" />
+            <marker date="1509946912833" expanded="true" signature="9268:9326" ph="CREATE TABLE... 교수회관" />
+            <marker date="1509946912833" expanded="true" signature="9351:9411" ph="CREATE TABLE... 스카이라운지" />
+            <marker date="1509946912833" expanded="true" signature="10206:10261" ph="INSERT INTO 후생관... " />
+            <marker date="1509946912833" expanded="true" signature="10383:10438" ph="INSERT INTO 후생관... " />
+            <marker date="1509946912833" expanded="true" signature="10504:10559" ph="INSERT INTO 후생관... " />
+            <marker date="1509946912833" expanded="true" signature="10655:10710" ph="INSERT INTO 후생관... " />
+            <marker date="1509946912833" expanded="true" signature="10824:10879" ph="INSERT INTO 후생관... " />
+            <marker date="1509946912833" expanded="true" signature="10945:11000" ph="INSERT INTO 후생관... " />
+            <marker date="1509946912833" expanded="true" signature="11150:11205" ph="INSERT INTO 후생관... " />
+            <marker date="1509946912833" expanded="true" signature="11350:11405" ph="INSERT INTO 후생관... " />
+            <marker date="1509946912833" expanded="true" signature="11513:11568" ph="INSERT INTO 후생관... " />
+            <marker date="1509946912833" expanded="true" signature="11634:11689" ph="INSERT INTO 후생관... " />
+            <marker date="1509946912833" expanded="true" signature="11780:11835" ph="INSERT INTO 후생관... " />
+            <marker date="1509946912833" expanded="true" signature="11886:11941" ph="INSERT INTO 후생관... " />
+            <marker date="1509946912833" expanded="true" signature="12000:12055" ph="INSERT INTO 어문관... " />
+            <marker date="1509946912833" expanded="true" signature="12217:12272" ph="INSERT INTO 기숙사... " />
+            <marker date="1509946912833" expanded="true" signature="12333:12388" ph="INSERT INTO 기숙사... " />
+            <marker date="1509946912833" expanded="true" signature="12467:12522" ph="INSERT INTO 기숙사... " />
+            <marker date="1509946912833" expanded="true" signature="12583:12638" ph="INSERT INTO 기숙사... " />
+            <marker date="1509946912833" expanded="true" signature="12744:12799" ph="INSERT INTO 기숙사... " />
+            <marker date="1509946912833" expanded="true" signature="12860:12915" ph="INSERT INTO 기숙사... " />
+            <marker date="1509946912833" expanded="true" signature="12989:13044" ph="INSERT INTO 기숙사... " />
+            <marker date="1509946912833" expanded="true" signature="13105:13160" ph="INSERT INTO 기숙사... " />
+            <marker date="1509946912833" expanded="true" signature="13249:13304" ph="INSERT INTO 기숙사... " />
+            <marker date="1509946912833" expanded="true" signature="13361:13416" ph="INSERT INTO 기숙사... " />
+            <marker date="1509946912833" expanded="true" signature="13522:13577" ph="INSERT INTO 기숙사... " />
+            <marker date="1509946912833" expanded="true" signature="13638:13693" ph="INSERT INTO 기숙사... " />
+            <marker date="1509946912833" expanded="true" signature="13762:13817" ph="INSERT INTO 기숙사... " />
+            <marker date="1509946912833" expanded="true" signature="13867:13922" ph="INSERT INTO 교직원... " />
+            <marker date="1509946912833" expanded="true" signature="13977:14036" ph="INSERT INTO 국제사회교육원... " />
+            <marker date="1509946912833" expanded="true" signature="14123:14178" ph="INSERT INTO 인문관... " />
+            <marker date="1509946912833" expanded="true" signature="14230:14286" ph="INSERT INTO 교수회관... " />
+            <marker date="1509946912833" expanded="true" signature="14327:14385" ph="INSERT INTO 스카이라운지... " />
+            <marker date="1509946912833" expanded="true" signature="14423:14481" ph="INSERT INTO 스카이라운지... " />
+            <marker date="1509946912833" expanded="true" signature="14529:14584" ph="INSERT INTO 인문관... " />
+            <marker date="1509946912833" expanded="true" signature="14643:14698" ph="INSERT INTO 인문관... " />
+            <marker date="1509946912833" expanded="true" signature="14743:14798" ph="INSERT INTO 인문관... " />
+            <marker date="1509946912833" expanded="true" signature="14843:14899" ph="INSERT INTO 교수회관... " />
+            <marker date="1509946912833" expanded="true" signature="14951:15009" ph="INSERT INTO 스카이라운지... " />
+            <marker date="1509946912833" expanded="true" signature="15058:15116" ph="INSERT INTO 스카이라운지... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hufscoops_project/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="21" column="45" lean-forward="false" selection-start-line="21" selection-start-column="45" selection-end-line="21" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hufscoops/app_urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="10" column="38" lean-forward="false" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hufscoops/haksik_pre.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1978">
+          <caret line="88" column="24" lean-forward="false" selection-start-line="88" selection-start-column="24" selection-end-line="88" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#29#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hufscoops/templates/seo_haksik_table.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1058">
+          <caret line="46" column="57" lean-forward="false" selection-start-line="46" selection-start-column="57" selection-end-line="46" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hufscoops/templates/glo_haksik_table.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="851">
+          <caret line="37" column="20" lean-forward="false" selection-start-line="37" selection-start-column="20" selection-end-line="37" selection-end-column="20" />
+          <folding>
+            <element signature="n#style#0;n#table#0;n#div#0;n#body#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#table#1;n#div#0;n#body#0;n#!!top" expanded="true" />
+            <element signature="e#2132#2138#0#HTML" expanded="true" />
+            <element signature="e#2138#2144#0#HTML" expanded="true" />
+            <element signature="e#2144#2150#0#HTML" expanded="true" />
+            <element signature="e#2150#2156#0#HTML" expanded="true" />
+            <element signature="e#2156#2162#0#HTML" expanded="true" />
+            <element signature="e#2162#2168#0#HTML" expanded="true" />
+            <element signature="e#2168#2174#0#HTML" expanded="true" />
+            <element signature="e#2174#2180#0#HTML" expanded="true" />
+            <element signature="e#2180#2186#0#HTML" expanded="true" />
+            <element signature="n#style#0;n#table#2;n#div#0;n#body#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hufscoops/haksik_table_make.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6762">
+          <caret line="296" column="20" lean-forward="false" selection-start-line="296" selection-start-column="20" selection-end-line="296" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hufscoops/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="16146">
+          <caret line="702" column="28" lean-forward="false" selection-start-line="702" selection-start-column="28" selection-end-line="702" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+            <marker date="1509975260414" expanded="true" signature="1847:1889" ph="DELETE FROM " />
+            <marker date="1509975260414" expanded="true" signature="1934:1982" ph="INSERT into user_data... " />
+            <marker date="1509975260414" expanded="true" signature="2318:2367" ph="SELECT Campu... user_data" />
+            <marker date="1509975260414" expanded="true" signature="2699:2748" ph="SELECT Campu... user_data" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hufscoops/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="46" column="10" lean-forward="true" selection-start-line="46" selection-start-column="10" selection-end-line="46" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/facebook_upload/upload.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="506">
+          <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

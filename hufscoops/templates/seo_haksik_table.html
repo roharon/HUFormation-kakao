@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<head>
+    <title>훕포메이션 이미지식단</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/earlyaccess/nanumgothic.css">
+    {% load staticfiles %}
+    <style>
+        body {
+            font-family: 'Nanum Gothic', serif;
+            font-size: 16px;
+
+            background: white;
+        }
+
+        th {
+            background-color: #003050;
+            color: white;
+        }
+        h2{
+            color: black;
+        }
+    </style>
+</head>
+
+
+<div class="container">
+        <h2><strong>인문관</strong></h2>
+        <table class="table table-striped" style="width: 100%">
+            <thead>
+                <tr>
+                    <th>메뉴 1</th>
+                    <th>메뉴 2</th>
+                    <th>면류</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{menu.inmoon_today_menu0}}</td>
+                    <td>{{menu.inmoon_today_menu1}}</td>
+                    <td>{{menu.inmoon_today_menu2}}</td>
+                </tr>
+                <tr>
+                    <td>{{menu.inmoon_today_price0}}</td>
+                    <td>{{menu.inmoon_today_price1}}</td>
+                    <td>{{menu.inmoon_today_price2}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <h2><strong>교수회관</strong></h2>
+        <table class="table table-striped" style="width: 100%">
+            <thead>
+                <tr>
+                    <th>메뉴</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{menu.gyosoo_today_menu0}}</td>
+                </tr>
+                <tr>
+                    <td>{{menu.gyosoo_today_price0}}</td>
+                </tr>
+            </tbody>
+        </table>
+    <h2><strong>스카이 라운지</strong></h2>
+        <table class="table table-striped" style="width: 100%">
+            <thead>
+                <tr>
+                    <th>메뉴 A</th>
+                    <th>메뉴 B</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{menu.lounge_today_menu0}}</td>
+                    <td>{{menu.lounge_today_menu1}}</td>
+                </tr>
+                <tr>
+                    <td>{{menu.lounge_today_price0}}</td>
+                    <td>{{menu.lounge_today_price1}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
