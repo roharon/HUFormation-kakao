@@ -36,11 +36,12 @@ HUFormation
 #사용법
 > assets, hufscoops, hufscoops_project 폴더가 있는 디렉토리에 DB폴더 생성해야합니다
 > ./facebook_upload/upload.py 와 ./haksik_upload.py 는 cron 작업을 통해 실행합니다 
-<pre>code>
+<pre><code>
 cron 작업실행
 0 0 * * * ./haksik_upload.py
 0 0 * * * ./facebook_upload/upload.py
 </code></pre>
+<br>
  <pre><code>
 python manage.py migrate    //DB 마이그레이션
 
