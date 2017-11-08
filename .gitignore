@@ -100,5 +100,5 @@ ENV/
 # mypy
 .mypy_cache/
 
-facebook_upload/upload.py
+
 DB/
