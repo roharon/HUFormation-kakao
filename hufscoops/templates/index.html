@@ -1,0 +1,242 @@
+{% load staticfiles %}
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <!-- Load jQuery -->
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <meta charset="UTF-8">
+    <title>학식 로그 분석</title>
+
+    <!-- 메인 CSS 링크 -->
+    <link href="{% static 'main.css' %}" rel="stylesheet">
+    <!-- Load c3.css -->
+    <link href="{% static 'bower_components/c3/c3.css' %}" rel="stylesheet" type="text/css">
+    <!-- Load d3.js and c3.js -->
+    <script src="{% static 'bower_components/d3/d3.min.js' %}" charset="utf-8"></script>
+    <script src="{% static 'bower_components/c3/c3.min.js' %}"></script>
+</head>
+<body>
+
+<div class="top-bar">
+    <div class="top-menu-title">
+        <h2><strong>훕포메이션 사용자분석</strong></h2>
+    </div>
+</div>
+
+<div class="main-contents-container">
+
+    <div class="main-contents">
+        <div class="label">
+            요청횟수 변화 추이
+        </div>
+        <div id="total-request-chart"></div>
+    </div>
+
+    <div class="main-contents">
+        <div class="label">
+            7일간 요청횟수
+       </div>
+        <div id="seven-days-request-chart"></div>
+    </div>
+
+    <div class="main-contents">
+        <div class="label">
+            식당별요청횟수
+        </div>
+        <div id="request-by-cafe-chart"></div>
+    </div>
+
+    <div class="main-contents">
+        <div class="label">
+            중식 석식 요청 횟수
+        </div>
+        <div id="request-by-time-chart"></div>
+    </div>
+
+    <div class="main-contents">
+        <div class="label">
+            시간별 요청횟수
+        </div>
+        <div id="request-by-hour-chart"></div>
+    </div>
+
+    <div class="main-contents">
+        <div class="label">
+            요일별 요청횟수
+        </div>
+        <div id="request-by-weekday-chart"></div>
+    </div>
+
+
+
+</div>
+
+
+</body>
+<script type="text/javascript">
+    $(document).ready( function () {
+        var date_list_for_x_axis = {{ date_pack|safe }}
+        var total_request_chart = c3.generate({
+            bindto: '#total-request-chart',
+            data: {
+                columns: [
+                    {{ total_request_data.zero_data|safe }}
+                ]
+            }
+        });
+        var seven_days_request_chart = c3.generate({
+            bindto: '#seven-days-request-chart',
+            data: {
+                x: 'x',
+                columns: [
+                    date_list_for_x_axis,
+                    ['요청횟수', 0, 0, 0, 0, 0, 0, 0 ]
+                ]
+            },
+            axis: {
+                x: {
+                    type: 'timeseries',
+                    tick: {
+                        format: '%d일'
+                    }
+                }
+            }
+        });
+        var request_by_cafe_chart = c3.generate({
+            bindto: '#request-by-cafe-chart',
+            data: {
+                x: 'x',
+                columns: [
+                    date_list_for_x_axis,
+                    ['후생관', 0, 0, 0, 0, 0, 0, 0 ],
+                    ['이미지 학식', 0, 0, 0, 0, 0, 0, 0 ],
+                    ['어문관', 0, 0, 0, 0, 0, 0, 0 ],
+                    ['기숙사 식당', 0, 0, 0, 0, 0, 0, 0 ],
+                    ['교직원 식당', 0, 0, 0, 0, 0, 0, 0 ],
+                    ['국제사회교육원', 0, 0, 0, 0, 0, 0, 0 ],
+                    ['인문관', 0, 0, 0, 0, 0, 0, 0 ],
+                    ['교수회관', 0, 0, 0, 0, 0, 0, 0 ],
+                    ['스카이 라운지', 0, 0, 0, 0, 0, 0, 0 ],
+                    ['학식', 0, 0, 0, 0, 0, 0, 0 ],
+                    ['내일의 학식', 0, 0, 0, 0, 0, 0, 0 ],
+                    ['시간별 학식', 0, 0, 0, 0, 0, 0, 0 ],
+                    ['도서관', 0, 0, 0, 0, 0, 0, 0 ],
+                    ['캠퍼스 변경', 0, 0, 0, 0, 0, 0, 0 ],
+                ]
+            },
+            axis: {
+                x: {
+                    type: 'timeseries',
+                    tick: {
+                        format: '%d일'
+                    }
+                }
+            }
+        });
+        var request_by_weekday_chart = c3.generate({
+            bindto: '#request-by-weekday-chart',
+            data: {
+                columns: [
+                    ['요청횟수', 0, 0, 0, 0, 0, 0, 0]
+                ],
+                type: 'bar'
+            },
+            bar: {
+                width: 20
+            },
+            axis: {
+                x: {
+                    type: 'category',
+                    categories: ['일', '월', '화', '수', '목', '금', '토']
+                }
+            }
+        });
+        var request_by_hour_chart = c3.generate({
+            bindto: '#request-by-hour-chart',
+            data: {
+                columns: [
+                    ['요청횟수', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+                ]
+            },
+            bar: {
+                width: 20
+            },
+            axis: {
+                x: {
+                    type: 'category',
+                    categories: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12',
+                        '13', '14', '15', '16', '17', '18   ', '19', '20', '21', '22', '23']
+                }
+            }
+        });
+        var request_by_time_chart = c3.generate({
+            bindto: '#request-by-time-chart',
+            data: {
+                x: 'x',
+                columns: [
+                    date_list_for_x_axis,
+                    ['중식', 0, 0, 0, 0, 0, 0, 0],
+                    ['석식', 0, 0, 0, 0, 0, 0, 0]
+                ]
+            },
+            axis: {
+                x: {
+                    type: 'timeseries',
+                    tick: {
+                        format: '%d일'
+                    }
+                }
+            }
+        });
+        setTimeout( function () {
+            total_request_chart.load({
+                columns:[
+                    {{ total_request_data.total_request_data|safe }}
+                ]
+            });
+            seven_days_request_chart.load({
+                columns:[
+                    {{ seven_days_request_data|safe }}
+                ]
+            });
+            request_by_cafe_chart.load({
+                columns:[
+                    {{ request_data_by_cafe.cnt_hooseng|safe }},
+                    {{ reqest_data_by_cafe.cnt_image|safe }},
+                    {{ request_data_by_cafe.cnt_umoon|safe }},
+                    {{ request_data_by_cafe.cnt_dorm|safe }},
+                    {{ request_data_by_cafe.cnt_hooseng_gyo|safe }},
+                    {{ request_data_by_cafe.cnt_gookje|safe }},
+                    {{ request_data_by_cafe.cnt_inmoon|safe }},
+                    {{ request_data_by_cafe.cnt_gyo|safe }},
+                    {{ request_data_by_cafe.cnt_sky|safe }},
+                    {{ request_data_by_cafe.cnt_haksik|safe }},
+                    {{ request_data_by_cafe.cnt_tomorrow_haksik|safe }},
+                    {{ request_data_by_cafe.cnt_time_haksik|safe }},
+                    {{ request_data_by_cafe.cnt_lib|safe }},
+                    {{ request_data_by_cafe.cnt_campus_change|safe }},
+                ]
+            });
+            request_by_weekday_chart.load({
+                columns:[
+                    {{ weekday_request_data|safe }}
+                ]
+            });
+            request_by_hour_chart.load({
+                columns:[
+                    {{ hourly_request_data|safe }}
+
+
+                ]
+            });
+            request_by_time_chart.load({
+                columns:[
+                    {{ request_by_time_data.cnt_lunch|safe }},
+                    {{ request_by_time_data.cnt_dinner|safe }}
+                ]
+            });
+            }, 750
+        );
+    });
+</script>
+</html>
