@@ -1,5 +1,6 @@
-# HUFormation
-> 카카오톡 [훕포메이션](http://pf.kakao.com/_xdERZxl) 을 통해서 사용할 수 있습니다.
+HUFormation
+-----------
+> 카카오톡 [@훕포메이션](http://pf.kakao.com/_xdERZxl) 을 통해서 사용할 수 있습니다.
 
 > roharon@hufs.ac.kr
 
