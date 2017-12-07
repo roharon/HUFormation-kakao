@@ -29,6 +29,18 @@ def db_init(db_cursor):
         print("Database create error.", file=sys.stderr)
         raise
 
+def crawl(day):
+    assert(day in ('today', 'tomorrow'))
+    return (haksik_pre.seo_crawl('인문관', day),
+            haksik_pre.seo_crawl('교수회관', day),
+            haksik_pre.seo_crawl('스카이 라운지', day),
+            haksik_pre.glo_crawl('후생관', day),
+            haksik_pre.glo_crawl('어문관', day),
+            haksik_pre.glo_crawl('기숙사 식당', day),
+            haksik_pre.glo_crawl('교직원 식당', day),
+            haksik_pre.glo_crawl('국제사회교육원', day)
+            )
+
 
 def db_crontab():
     t = ['월', '화', '수', '목', '금', '토', '일']
@@ -44,18 +56,10 @@ def db_crontab():
     ###con = sqlite3.connect("/home/roharon98/develop/DB/haksik_data.db")
 
     try:
-        inmoon = haksik_pre.seo_crawl('인문관', 'today')
-        gyosoo = haksik_pre.seo_crawl('교수회관', 'today')
-        sky_lounge = haksik_pre.seo_crawl('스카이 라운지', 'today')
-
-        hooseng = haksik_pre.glo_crawl('후생관', 'today')
-        umoon = haksik_pre.glo_crawl('어문관', 'today')
-        dorm = haksik_pre.glo_crawl('기숙사 식당', 'today')
-        professor = haksik_pre.glo_crawl('교직원 식당', 'today')
-        gookje = haksik_pre.glo_crawl('국제사회교육원', 'today')
+        inmoon,gyosoo,sky_lounge,hooseng,umoon,dorm,professor,gookje = crawl('today')
     except:
-        print("연결오류")
-        return 0
+        print("Crawling connection error.", file=sys.stderr)
+        raise
 
     cur = con.cursor()
     db_init(cur)
@@ -160,46 +164,14 @@ def tomorrow_db_crontab():
     ###con = sqlite3.connect("/home/roharon98/develop/DB/haksik_data.db")
 
     cur = con.cursor()
-    try:
-        cur.execute("DELETE FROM 후생관")
-        cur.execute("DELETE FROM 어문관")
-        cur.execute("DELETE FROM 기숙사")
-        cur.execute("DELETE FROM 교직원")
-        cur.execute("DELETE FROM 국제사회교육원")
+    db_init(cur)
 
-        cur.execute("DELETE FROM 인문관")
-        cur.execute("DELETE FROM 교수회관")
-        cur.execute("DELETE FROM 스카이라운지")
-    except:
-        pass
-
-    try:
-        ## 각 카페테리아별 테이블을 만들어 아침점심저녁 콜럼을 넣자
-        # 어문관 경우에 예외처리.
-        cur.execute("CREATE TABLE 후생관(breakfast TEXT, lunch TEXT, dinner TEXT);")
-        cur.execute("CREATE TABLE 어문관(breakfast TEXT, lunch TEXT, dinner TEXT);")
-        cur.execute("CREATE TABLE 기숙사(breakfast TEXT, lunch TEXT, dinner TEXT);")
-        cur.execute("CREATE TABLE 교직원(breakfast TEXT, lunch TEXT, dinner TEXT);")
-        cur.execute("CREATE TABLE 국제사회교육원(breakfast TEXT, lunch TEXT, dinner TEXT);")
-
-        cur.execute("CREATE TABLE 인문관(breakfast TEXT, lunch TEXT, dinner TEXT);")
-        cur.execute("CREATE TABLE 교수회관(breakfast TEXT, lunch TEXT, dinner TEXT);")
-        cur.execute("CREATE TABLE 스카이라운지(breakfast TEXT, lunch TEXT, dinner TEXT);")
-
-
-    except:
-        print("@@예외")
-        pass
     print(haksik_pre.seo_crawl('인문관', 'tomorrow'))
-    inmoon = haksik_pre.seo_crawl('인문관', 'tomorrow')
-    gyosoo = haksik_pre.seo_crawl('교수회관', 'tomorrow')
-    sky_lounge = haksik_pre.seo_crawl('스카이 라운지', 'tomorrow')
-
-    hooseng = haksik_pre.glo_crawl('후생관', 'tomorrow')
-    umoon = haksik_pre.glo_crawl('어문관', 'tomorrow')
-    dorm = haksik_pre.glo_crawl('기숙사 식당', 'tomorrow')
-    professor = haksik_pre.glo_crawl('교직원 식당', 'tomorrow')
-    gookje = haksik_pre.glo_crawl('국제사회교육원', 'tomorrow')
+    try:
+        inmoon,gyosoo,sky_lounge,hooseng,umoon,dorm,professor,gookje = crawl('tomorrow')
+    except:
+        print("Crawling connection error.", file=sys.stderr)
+        raise
 
     if '조식' in hooseng[0]:
         if '컵밥' in hooseng[1]:
@@ -288,3 +260,11 @@ def tomorrow_db_crontab():
 
 db_crontab()
 tomorrow_db_crontab()
+
+
+
+## Database binary checksum
+#
+# MD5 (DB/haksik_data.db)          = 7f49a064166e312860afd45573c6836f
+# MD5 (DB/tomorrow_haksik_data.db) = fb235b93ca605543ac83cbee4bf82d9c
+#
