@@ -3,8 +3,6 @@
 import sqlite3
 import datetime
 from hufscoops import haksik_pre
-import sqlite3
-import datetime
 
 def db_crontab():
     t = ['월', '화', '수', '목', '금', '토', '일']
