@@ -2,7 +2,7 @@
 
 import sqlite3
 import datetime
-import os
+import os, sys
 from hufscoops import haksik_pre
 
 HOME_DIR = os.path.dirname(os.path.realpath(__file__))
@@ -15,6 +15,20 @@ DB_PATH_TOMORROW = os.path.join(DB_DIR, DB_NAME_TOMORROW)
 
 if not os.path.isdir(DB_DIR):
     os.mkdir(DB_DIR)
+
+table_names = ("후생관","어문관","기숙사","교직원","국제사회교육원","인문관","교수회관","스카이라운지")
+
+def db_init(db_cursor):
+    try:
+        query_delete = ("DROP TABLE IF EXISTS {};")
+        query_create = ("CREATE TABLE {}(breakfast TEXT, lunch TEXT, dinner TEXT);")
+        for tname in table_names:
+            db_cursor.execute(query_delete.format(tname))
+            db_cursor.execute(query_create.format(tname))
+    except:
+        print("Database create error.", file=sys.stderr)
+        raise
+
 
 def db_crontab():
     t = ['월', '화', '수', '목', '금', '토', '일']
@@ -44,36 +58,8 @@ def db_crontab():
         return 0
 
     cur = con.cursor()
-    try:
-        cur.execute("DELETE FROM 후생관")
-        cur.execute("DELETE FROM 어문관")
-        cur.execute("DELETE FROM 기숙사")
-        cur.execute("DELETE FROM 교직원")
-        cur.execute("DELETE FROM 국제사회교육원")
+    db_init(cur)
 
-        cur.execute("DELETE FROM 인문관")
-        cur.execute("DELETE FROM 교수회관")
-        cur.execute("DELETE FROM 스카이라운지")
-    except:
-        pass
-
-    try:
-        ## 각 카페테리아별 테이블을 만들어 아침점심저녁 콜럼을 넣자
-        # 어문관 경우에 예외처리.
-        cur.execute("CREATE TABLE 후생관(breakfast TEXT, lunch TEXT, dinner TEXT);")
-        cur.execute("CREATE TABLE 어문관(breakfast TEXT, lunch TEXT, dinner TEXT);")
-        cur.execute("CREATE TABLE 기숙사(breakfast TEXT, lunch TEXT, dinner TEXT);")
-        cur.execute("CREATE TABLE 교직원(breakfast TEXT, lunch TEXT, dinner TEXT);")
-        cur.execute("CREATE TABLE 국제사회교육원(breakfast TEXT, lunch TEXT, dinner TEXT);")
-
-        cur.execute("CREATE TABLE 인문관(breakfast TEXT, lunch TEXT, dinner TEXT);")
-        cur.execute("CREATE TABLE 교수회관(breakfast TEXT, lunch TEXT, dinner TEXT);")
-        cur.execute("CREATE TABLE 스카이라운지(breakfast TEXT, lunch TEXT, dinner TEXT);")
-
-
-    except:
-        print("@@예외")
-        pass
     print(haksik_pre.seo_crawl('인문관', 'today'))
 
     if '조식' in hooseng[0]:
