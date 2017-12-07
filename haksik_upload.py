@@ -46,87 +46,72 @@ def crawl(day):
     gookje = haksik_pre.glo_crawl('국제사회교육원', day)
     return (inmoon,gyosoo,sky_lounge,hooseng,umoon,dorm,professor,gookje)
 
+def insert_menu(cur, cafe, menu):
+    query_insert = "INSERT INTO {}(breakfast, lunch, dinner) VALUES(?,?,?)"
+    cur.execute(query_insert.format(cafe), menu)
 
 def db_insert(inmoon,gyosoo,sky_lounge,hooseng,umoon,dorm,professor,gookje,cur=None,day=None,days=None):
     print(" > DB inserting ...")
+    query_insert = "INSERT INTO {}(breakfast, lunch, dinner) VALUES(?,?,?)"
     if '조식' in hooseng[0]:
         if '컵밥' in hooseng[1]:
             if '한식' in hooseng[2]:
                 if '일품' in hooseng[3]:
                     try:
-                        if '석식' in hooseng[4]:
-                            cur.execute("INSERT INTO 후생관(breakfast, lunch, dinner) VALUES(?,?,?)",
-                                        (hooseng[0], hooseng[1], hooseng[4]))
-                            cur.execute("INSERT INTO 후생관(breakfast, lunch, dinner) VALUES(?,?,?)", ('', hooseng[2], ''))
-                            cur.execute("INSERT INTO 후생관(breakfast, lunch, dinner) VALUES(?,?,?)", ('', hooseng[3], ''))
-                        else:
-                            cur.execute("INSERT INTO 후생관(breakfast, lunch, dinner) VALUES(?,?,?)",
-                                        (hooseng[0], hooseng[1], ''))
-                            cur.execute("INSERT INTO 후생관(breakfast, lunch, dinner) VALUES(?,?,?)", ('', hooseng[2], ''))
-                            cur.execute("INSERT INTO 후생관(breakfast, lunch, dinner) VALUES(?,?,?)", ('', hooseng[3], ''))
+                        insert_menu(cur, "후생관", (hooseng[0], hooseng[1],
+                                        hooseng[4] if '석식' in hooseng[4] else ''))
+                        insert_menu(cur, "후생관", ('', hooseng[2], ''))
+                        insert_menu(cur, "후생관", ('', hooseng[3], ''))
                     except:
                         print('석식 없음 오류')
                 else:
-                    cur.execute("INSERT INTO 후생관(breakfast, lunch, dinner) VALUES(?,?,?)",
-                                (hooseng[0], hooseng[1], ''))
+                    insert_menu(cur, "후생관", (hooseng[0], hooseng[1], ''))
                     if '석식' in hooseng[3]:
-                        cur.execute("INSERT INTO 후생관(breakfast, lunch, dinner) VALUES(?,?,?)",
-                                    ('', hooseng[2], hooseng[3]))
+                        insert_menu(cur, "후생관", ('', hooseng[2], hooseng[3]))
         else:
-            cur.execute("INSERT INTO 후생관(breakfast, lunch, dinner) VALUES(?,?,?)", (hooseng[0], hooseng[1], hooseng[3]))
-            cur.execute("INSERT INTO 후생관(breakfast, lunch, dinner) VALUES(?,?,?)", ('', hooseng[2], ''))
-    else:
-        if '일품' in hooseng[0]:
-            cur.execute("INSERT INTO 후생관(breakfast, lunch, dinner) VALUES(?,?,?)", ('', hooseng[0], ''))
+            insert_menu(cur, "후생관", (hooseng[0], hooseng[1], hooseng[3]))
+            insert_menu(cur, "후생관", ('', hooseng[2], ''))
+    elif '일품' in hooseng[0]:
+            insert_menu(cur, "후생관", ('', hooseng[0], ''))
+            insert_menu(cur, "후생관", (hooseng[0], hooseng[1], hooseng[4]))
 
-            cur.execute("INSERT INTO 후생관(breakfast, lunch, dinner) VALUES(?,?,?)", (hooseng[0], hooseng[1], hooseng[4]))
-
-    cur.execute("INSERT INTO 어문관(breakfast, lunch, dinner) VALUES(?,?,?)", (umoon[0], umoon[0], umoon[0]))
+    insert_menu(cur, "어문관", (umoon[0], umoon[0], umoon[0]))
 
     if '조식(T/O)' in dorm[1]:
         if '중식(특식)' in dorm[3]:
-            if '석식(일품)' in dorm[5]:
-                cur.execute("INSERT INTO 기숙사(breakfast, lunch, dinner) VALUES(?,?,?)", (dorm[0], dorm[2], dorm[4]))
-                cur.execute("INSERT INTO 기숙사(breakfast, lunch, dinner) VALUES(?,?,?)", (dorm[1], dorm[3], dorm[5]))
-            else:
-                cur.execute("INSERT INTO 기숙사(breakfast, lunch, dinner) VALUES(?,?,?)", (dorm[0], dorm[2], dorm[4]))
-                cur.execute("INSERT INTO 기숙사(breakfast, lunch, dinner) VALUES(?,?,?)", (dorm[1], dorm[3], ''))
+            insert_menu(cur, "기숙사", (dorm[0], dorm[2], dorm[4]))
+            insert_menu(cur, "기숙사", (dorm[1], dorm[3], dorm[5] if '석식(일품)' in dorm[5] else ''))
         else:
-            if '석식(일품)' in dorm[4]:
-                cur.execute("INSERT INTO 기숙사(breakfast, lunch, dinner) VALUES(?,?,?)", (dorm[0], dorm[2], dorm[3]))
-                cur.execute("INSERT INTO 기숙사(breakfast, lunch, dinner) VALUES(?,?,?)", (dorm[1], '', dorm[4]))
-            else:
-                cur.execute("INSERT INTO 기숙사(breakfast, lunch, dinner) VALUES(?,?,?)", (dorm[0], dorm[2], dorm[3]))
-                cur.execute("INSERT INTO 기숙사(breakfast, lunch, dinner) VALUES(?,?,?)", (dorm[1], '', ''))
+            insert_menu(cur, "기숙사", (dorm[0], dorm[2], dorm[3]))
+            insert_menu(cur, "기숙사", (dorm[1], '', dorm[4]) if '석식(일품)' in dorm[4] else '')
     else:
         if '중식(특식)' in dorm[2]:
-            cur.execute("INSERT INTO 기숙사(breakfast, lunch, dinner) VALUES(?,?,?)", (dorm[0], dorm[1], dorm[3]))
-            cur.execute("INSERT INTO 기숙사(breakfast, lunch, dinner) VALUES(?,?,?)", ('', dorm[2], dorm[4]))
+            insert_menu(cur, "기숙사", (dorm[0], dorm[1], dorm[3]))
+            insert_menu(cur, "기숙사", ('', dorm[2], dorm[4]))
         else:
             if '석식(일품)' in dorm[3]:
-                cur.execute("INSERT INTO 기숙사(breakfast, lunch, dinner) VALUES(?,?,?)", (dorm[0], dorm[2], dorm[3]))
-                cur.execute("INSERT INTO 기숙사(breakfast, lunch, dinner) VALUES(?,?,?)", ('', '', dorm[4]))
+                insert_menu(cur, "기숙사", (dorm[0], dorm[2], dorm[3]))
+                insert_menu(cur, "기숙사", ('', '', dorm[4]))
             else:
-                cur.execute("INSERT INTO 기숙사(breakfast, lunch, dinner) VALUES(?,?,?)", (dorm[0], dorm[1], dorm[2]))
+                insert_menu(cur, "기숙사", (dorm[0], dorm[1], dorm[2]))
 
-    cur.execute("INSERT INTO 교직원(breakfast, lunch, dinner) VALUES(?,?,?)", ('', professor[0], professor[1]))
-
-    cur.execute("INSERT INTO 국제사회교육원(breakfast, lunch, dinner) VALUES(?,?,?)", (gookje[0], gookje[1], gookje[2]))
+    insert_menu(cur, "교직원", ('', professor[0], professor[1]))
+    insert_menu(cur, "국제사회교육원", (gookje[0], gookje[1], gookje[2]))
 
 
     if (day == 'today' and days in ['토', '일']) or \
             (day == 'tomorrow' and days in ['금', '토']):
-        cur.execute("INSERT INTO 인문관(breakfast, lunch, dinner) VALUES(?,?,?)", (inmoon[0], inmoon[0], ''))
-        cur.execute("INSERT INTO 교수회관(breakfast, lunch, dinner) VALUES(?,?,?)", (' ', ' ', ' '))
-        cur.execute("INSERT INTO 스카이라운지(breakfast, lunch, dinner) VALUES(?,?,?)", ('', '', ''))
-        cur.execute("INSERT INTO 스카이라운지(breakfast, lunch, dinner) VALUES(?,?,?)", ('', '', ''))
+        insert_menu(cur, "인문관", (inmoon[0], inmoon[0], ''))
+        insert_menu(cur, "교수회관", (' ', ' ', ' '))
+        insert_menu(cur, "스카이라운지", ('', '', ''))
+        insert_menu(cur, "스카이라운지", ('', '', ''))
     else:
-        cur.execute("INSERT INTO 인문관(breakfast, lunch, dinner) VALUES(?,?,?)", (inmoon[0], inmoon[1], inmoon[4]))
-        cur.execute("INSERT INTO 인문관(breakfast, lunch, dinner) VALUES(?,?,?)", ('', inmoon[2], ''))
-        cur.execute("INSERT INTO 인문관(breakfast, lunch, dinner) VALUES(?,?,?)", ('', inmoon[3], ''))
-        cur.execute("INSERT INTO 교수회관(breakfast, lunch, dinner) VALUES(?,?,?)", ('', gyosoo[0], gyosoo[1]))
-        cur.execute("INSERT INTO 스카이라운지(breakfast, lunch, dinner) VALUES(?,?,?)", ('', sky_lounge[0], ''))
-        cur.execute("INSERT INTO 스카이라운지(breakfast, lunch, dinner) VALUES(?,?,?)", ('', sky_lounge[1], ''))
+        insert_menu(cur, "인문관", (inmoon[0], inmoon[1], inmoon[4]))
+        insert_menu(cur, "인문관", ('', inmoon[2], ''))
+        insert_menu(cur, "인문관", ('', inmoon[3], ''))
+        insert_menu(cur, "교수회관", ('', gyosoo[0], gyosoo[1]))
+        insert_menu(cur, "스카이라운지", ('', sky_lounge[0], ''))
+        insert_menu(cur, "스카이라운지", ('', sky_lounge[1], ''))
 
 
 
