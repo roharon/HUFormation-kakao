@@ -132,69 +132,24 @@ def db_insert(inmoon,gyosoo,sky_lounge,hooseng,umoon,dorm,professor,gookje,cur=N
 
 def db_crontab():
     days = day_kr[datetime.datetime.today().weekday()]
-    day = 'today'
-
-    print(haksik_pre.glo_crawl('교직원 식당', day))
-    ## 크론작업
-    # 0,52 0 * * * /home/roharon98/hufscoops/venv/bin/python3.5 /home/roharon98/hufscoops/haksik_upload.py > /home/roharon98/hufscoops/haksik_crontab_error.log 2>&1
-
-    con = sqlite3.connect(DB_PATH)
-    #con=sqlite3.connect("./DB/haksik_data.db")
-    ###con = sqlite3.connect("/home/roharon98/develop/DB/haksik_data.db")
-
-    try:
-        inmoon,gyosoo,sky_lounge,hooseng,umoon,dorm,professor,gookje = crawl(day)
-    except:
-        print("Crawling connection error.", file=sys.stderr)
-        raise
-
-    cur = con.cursor()
-    db_init(cur)
-
-    print(haksik_pre.seo_crawl('인문관', day))
-    db_insert(inmoon,gyosoo,sky_lounge,hooseng,umoon,dorm,professor,gookje,cur,day,days=days)
 
 
-
-    # cur.execute("INSERT into 후생관(breakfast) VALUES(?)", (hooseng[0]))
-
-    con.commit()
-    con.close()
-
-def tomorrow_db_crontab():
-    days = day_kr[datetime.datetime.today().weekday()]
-    day = 'tomorrow'
-
-    print(haksik_pre.glo_crawl('교직원 식당', day))
-    ## 크론작업
-    # 0,52 0 * * * /home/roharon98/hufscoops/venv/bin/python3.5 /home/roharon98/hufscoops/haksik_upload.py > /home/roharon98/hufscoops/haksik_crontab_error.log 2>&1
-
-    con = sqlite3.connect(DB_PATH_TOMORROW)
-    #con=sqlite3.connect("./DB/tomorrow_haksik_data.db")
-    ###con = sqlite3.connect("/home/roharon98/develop/DB/haksik_data.db")
-
-    cur = con.cursor()
-    db_init(cur)
-
-    print(haksik_pre.seo_crawl('인문관', day))
-    try:
-        inmoon,gyosoo,sky_lounge,hooseng,umoon,dorm,professor,gookje = crawl(day)
-    except:
-        print("Crawling connection error.", file=sys.stderr)
-        raise
-
-    db_insert(inmoon,gyosoo,sky_lounge,hooseng,umoon,dorm,professor,gookje,cur,day,days=days)
-
-
-
-    # cur.execute("INSERT into 후생관(breakfast) VALUES(?)", (hooseng[0]))
-
-    con.commit()
-    con.close()
+    for db_path, day in ((DB_PATH, 'today'), (DB_PATH_TOMORROW, 'tomorrow')):
+        try:
+            data = crawl(day)
+        except:
+            print("Crawling connection error.", file=sys.stderr)
+            raise
+        con= sqlite3.connect(db_path)
+        cur = con.cursor()
+        db_init(cur)
+        inmoon,gyosoo,sky_lounge,hooseng,umoon,dorm,professor,gookje = data
+        db_insert(inmoon,gyosoo,sky_lounge,hooseng,umoon,dorm,professor,gookje,cur,day,days=days)
+        con.commit()
+        con.close()
 
 
 db_crontab()
-tomorrow_db_crontab()
 
 
 
