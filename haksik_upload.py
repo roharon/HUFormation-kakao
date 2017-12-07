@@ -2,7 +2,19 @@
 
 import sqlite3
 import datetime
+import os
 from hufscoops import haksik_pre
+
+HOME_DIR = os.path.dirname(os.path.realpath(__file__))
+DB_DIR = HOME_DIR+"/DB"
+DB_NAME = "/haksik_data.db"
+DB_PATH = os.path.join(DB_DIR, DB_NAME)
+DB_NAME_TOMORROW = "tomorrow_haksik_data.db"
+DB_PATH_TOMORROW = os.path.join(DB_DIR, DB_NAME_TOMORROW)
+
+
+if not os.path.isdir(DB_DIR):
+    os.mkdir(os.path.dirname(DB_DIR))
 
 def db_crontab():
     t = ['월', '화', '수', '목', '금', '토', '일']
@@ -13,7 +25,7 @@ def db_crontab():
     ## 크론작업
     # 0,52 0 * * * /home/roharon98/hufscoops/venv/bin/python3.5 /home/roharon98/hufscoops/haksik_upload.py > /home/roharon98/hufscoops/haksik_crontab_error.log 2>&1
 
-    con = sqlite3.connect("/home/roharon98/hufscoops/DB/haksik_data.db")
+    con = sqlite3.connect(DB_PATH)
     #con=sqlite3.connect("./DB/haksik_data.db")
     ###con = sqlite3.connect("/home/roharon98/develop/DB/haksik_data.db")
 
@@ -157,7 +169,7 @@ def tomorrow_db_crontab():
     ## 크론작업
     # 0,52 0 * * * /home/roharon98/hufscoops/venv/bin/python3.5 /home/roharon98/hufscoops/haksik_upload.py > /home/roharon98/hufscoops/haksik_crontab_error.log 2>&1
 
-    con = sqlite3.connect("/home/roharon98/hufscoops/DB/tomorrow_haksik_data.db")
+    con = sqlite3.connect(DB_PATH_TOMORROW)
     #con=sqlite3.connect("./DB/tomorrow_haksik_data.db")
     ###con = sqlite3.connect("/home/roharon98/develop/DB/haksik_data.db")
 
