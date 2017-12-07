@@ -6,15 +6,15 @@ import os
 from hufscoops import haksik_pre
 
 HOME_DIR = os.path.dirname(os.path.realpath(__file__))
-DB_DIR = HOME_DIR+"/DB"
-DB_NAME = "/haksik_data.db"
+DB_DIR = os.path.join(HOME_DIR,"DB")
+DB_NAME = "haksik_data.db"
 DB_PATH = os.path.join(DB_DIR, DB_NAME)
 DB_NAME_TOMORROW = "tomorrow_haksik_data.db"
 DB_PATH_TOMORROW = os.path.join(DB_DIR, DB_NAME_TOMORROW)
 
 
 if not os.path.isdir(DB_DIR):
-    os.mkdir(os.path.dirname(DB_DIR))
+    os.mkdir(DB_DIR)
 
 def db_crontab():
     t = ['월', '화', '수', '목', '금', '토', '일']
