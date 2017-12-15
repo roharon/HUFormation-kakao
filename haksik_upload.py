@@ -83,7 +83,7 @@ def db_insert(inmoon,gyosoo,sky_lounge,hooseng,umoon,dorm,professor,gookje,cur=N
             insert_menu(cur, "기숙사", (dorm[1], dorm[3], dorm[5] if '석식(일품)' in dorm[5] else ''))
         else:
             insert_menu(cur, "기숙사", (dorm[0], dorm[2], dorm[3]))
-            insert_menu(cur, "기숙사", (dorm[1], '', dorm[4]) if '석식(일품)' in dorm[4] else '')
+            insert_menu(cur, "기숙사", (dorm[1], '', dorm[4] if '석식(일품)' in dorm[4] else ''))
     else:
         if '중식(특식)' in dorm[2]:
             insert_menu(cur, "기숙사", (dorm[0], dorm[1], dorm[3]))
