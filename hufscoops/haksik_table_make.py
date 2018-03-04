@@ -110,7 +110,10 @@ def glo_haksik_load():
 
     menu_list=formatted_haksik(time, '후생관')
     try:
-        if len(menu_list)==1:
+        if len(menu_list)==0:
+            hooseng_menu=dict()
+
+        elif len(menu_list)==1:
             hooseng_menu=dict(
                 hooseng_today_menu0=menu_list[0][1],
                 hooseng_today_price0=menu_list[0][-1],
@@ -158,12 +161,15 @@ def glo_haksik_load():
             )
     except:
         pass
+
     all_menu.update(hooseng_menu)
 
     menu_list=formatted_haksik(time, '교직원')
 
     try:
-        if len(menu_list)==1:
+        if len(menu_list)==0:
+            gyojik_menu=dict()
+        elif len(menu_list)==1:
             gyojik_menu=dict(
                 gyojik_today_menu0=menu_list[0][1],
                 gyojik_today_price0=menu_list[0][-1],
@@ -182,9 +188,8 @@ def glo_haksik_load():
     menu_list=formatted_haksik(time, '어문관')
 
     try:
-        if len(menu_list)==0:
-            umoon_menu=dict(
-            )
+        umoon_menu = dict(
+        )
         if len(menu_list)==1:
             umoon_menu=dict(
                 umoon_today_menu0=menu_list[0][1],
@@ -204,7 +209,10 @@ def glo_haksik_load():
     menu_list=formatted_haksik(time, '기숙사')
 
     try:
-        if len(menu_list)==1:
+        if len(menu_list)==0:
+            hufsdorm_menu=dict()
+
+        elif len(menu_list)==1:
             hufsdorm_menu=dict(
                 hufsdorm_today_menu0=menu_list[0][1],
                 hufsdorm_today_price0=menu_list[0][-1],

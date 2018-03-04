@@ -40,6 +40,7 @@ def crawl(day):
     sky_lounge = haksik_pre.seo_crawl('스카이 라운지', day)
     print("   > glo crawling ...")
     hooseng = haksik_pre.glo_crawl('후생관', day)
+    print(hooseng)
     umoon = haksik_pre.glo_crawl('어문관', day)
     dorm = haksik_pre.glo_crawl('기숙사 식당', day)
     professor = haksik_pre.glo_crawl('교직원 식당', day)
@@ -72,15 +73,58 @@ def db_insert(inmoon,gyosoo,sky_lounge,hooseng,umoon,dorm,professor,gookje,cur=N
             insert_menu(cur, "후생관", (hooseng[0], hooseng[1], hooseng[3]))
             insert_menu(cur, "후생관", ('', hooseng[2], ''))
     elif '일품' in hooseng[0]:
-            insert_menu(cur, "후생관", ('', hooseng[0], ''))
-            insert_menu(cur, "후생관", (hooseng[0], hooseng[1], hooseng[4]))
+        insert_menu(cur, "후생관", ('', hooseng[0], ''))
+        insert_menu(cur, "후생관", (hooseng[0], hooseng[1], hooseng[4]))
+    elif '뚝배기' in hooseng[0]:
+        insert_menu(cur,"후생관", ('',hooseng[0],hooseng[0]))
+        insert_menu(cur,"후생관",('',hooseng[1],hooseng[1]))
+    elif '탕류' in hooseng[0]:
+        if '뚝배기' in hooseng[1]:
+            if '일품1' in hooseng[2]:
+                    if '일품2' in hooseng[3]:
+                        #일품2 있고
+                        insert_menu(cur, "후생관", ('', hooseng[0], hooseng[0]))
+                        insert_menu(cur, "후생관", ('', hooseng[1], hooseng[1]))
+                        insert_menu(cur, "후생관", ('', hooseng[2], hooseng[2]))
+                        insert_menu(cur, "후생관", ('', hooseng[3], hooseng[3]))
+                        try:
+                            insert_menu(cur,"후생관",('','',hooseng[4] if '석식' in hooseng[4] else ''))
+                        except:
+                            pass
+
+                    else:
+                        # 일품2없고 석식없고
+                        insert_menu(cur, "후생관", ('', hooseng[0], hooseng[0]))
+                        insert_menu(cur, "후생관", ('', hooseng[1], hooseng[1]))
+                        insert_menu(cur, "후생관", ('', hooseng[2], hooseng[2]))
+                        insert_menu(cur,"후생관",('','',hooseng[3] if '석식' in hooseng[3] else ''))
+
+
 
     insert_menu(cur, "어문관", (umoon[0], umoon[0], umoon[0]))
 
     if '조식(T/O)' in dorm[1]:
         if '중식(특식)' in dorm[3]:
-            insert_menu(cur, "기숙사", (dorm[0], dorm[2], dorm[4]))
-            insert_menu(cur, "기숙사", (dorm[1], dorm[3], dorm[5] if '석식(일품)' in dorm[5] else ''))
+            if '스넥' in dorm[4]:
+                if '석식' in dorm[5]:
+                    try:
+                        insert_menu(cur, "기숙사", (dorm[0], dorm[2], dorm[5]))
+                        insert_menu(cur, "기숙사", (dorm[1], dorm[3],''))
+                        insert_menu(cur, "기숙사", ('', dorm[4], ''))
+                    except:
+                        insert_menu(cur, "기숙사", ('기숙사식단 오류', '기숙사 식단 오류', '기숙사식단 오류'))
+                else:
+                    try:
+                        insert_menu(cur, "기숙사", (dorm[0], dorm[2], ''))
+                        insert_menu(cur, "기숙사", (dorm[1], dorm[3], ''))
+                        insert_menu(cur, "기숙사", ('', dorm[4], ''))
+                    except:
+                        insert_menu(cur, "기숙사", ('기숙사식단 오류', '기숙사 식단 오류', '기숙사식단 오류'))
+
+
+            else:
+                insert_menu(cur, "기숙사", (dorm[0], dorm[2], dorm[4]))
+                insert_menu(cur, "기숙사", (dorm[1], dorm[3], dorm[5] if '석식' in dorm[5] else ''))
         else:
             insert_menu(cur, "기숙사", (dorm[0], dorm[2], dorm[3]))
             insert_menu(cur, "기숙사", (dorm[1], '', dorm[4] if '석식(일품)' in dorm[4] else ''))

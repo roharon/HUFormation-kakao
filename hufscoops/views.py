@@ -9,6 +9,7 @@ import sqlite3
 import time
 from . import haksik_db_to
 from . import library_crawl
+#from .markov_chat.rep import make_reply
 
 def keyboard(request):
 
@@ -21,7 +22,7 @@ def keyboard(request):
 
 @csrf_exempt
 def message(request):
-    button_info = ['학식', '내일의 학식', '시간별 학식', '이미지 학식', '도서관', '캠퍼스 변경']
+    button_info = ['학식', '내일의 학식', '시간별 학식', '이미지 학식', '도서관', '캠퍼스 변경', '대화하기']
     glo_info = ['후생관', '어문관', '기숙사 식당', '교직원 식당', '국제사회교육원']
     glo_tomorrow_info=['=후생관=', '=어문관=', '=기숙사 식당=', '=교직원 식당=', '=국제사회교육원=']
     seo_info=['인문관', '교수회관', '스카이 라운지']
@@ -55,6 +56,48 @@ def message(request):
                 'buttons': ['서울', '글로벌']
             }
         })
+
+        """
+            elif (content_name == "대화하기") and (content_type=="buttons"):
+        
+        마르코브체인 이용한 채팅학습
+
+        
+        return JsonResponse({
+            'message': {
+                'text': "훕포메이션과 채팅을 시작합니다\n말한 내용은 모두 학습합니다.\n종료를 원하시면 `종료`라고 적어주세요"
+            },
+            'keyboard': {
+                'type': 'text'
+            }
+
+        })
+
+    elif content_type=='text':
+        return JsonResponse({
+            'message': {
+                'text': make_reply(content_name)
+            },
+            'keyboard': {
+                'type': 'text'
+            }
+
+        })
+    elif "종료" in content_name and content_type=='text':
+        return JsonResponse({
+            'message': {
+                'text': '훕포메이션과의 채팅을 종료합니다.'
+            },
+            'keyboard': {
+                'type': 'buttons',
+                'buttons': button_info
+            }
+        })
+        """
+
+
+
+
 
     elif content_name in ("서울", "글로벌"):
 
@@ -432,6 +475,7 @@ def message(request):
                 'buttons': button_info
             }
         })
+
     else:
         mess = "이걸 보고계시다면 오류입니다, 개발자에게 알려주세요"
         if content_type == 'photo':

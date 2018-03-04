@@ -145,7 +145,12 @@ def glo_crawl(cafeteria, date):
     cafe_menu = []
 
     for title in my_titles:
+        title.text.replace('일품1','일품 ')
+        title.text.replace('일품2', '일품 ')
+        title.text.replace('일품3', '일품 ')
         data.append(title.text)
+
+
     for i in data:
         if len(data) == 1:
             cafe_menu.append(i)
@@ -165,6 +170,7 @@ def glo_crawl(cafeteria, date):
 
                     i = i.replace('\n', ' ').replace('&', '').replace('*', '').split()
                     cafe_menu.append(i)
+
 
     menu = ['', '', '', '', '', '', '', '', '','','','','','','','']
     menu_size = len(cafe_menu)
@@ -214,16 +220,19 @@ def glo_crawl(cafeteria, date):
                         if cafeteria == '기숙사 식당':
                             if days in ['토', '일']:
                                 if '0830~0900' in cafe_menu[size][what]:
-                                    cafe_menu[size][what] = cafe_menu[size][what].replace('0830~0900', '0800~0900')
+                                    cafe_menu[size][what] = cafe_menu[size][what].replace('0830~0900', '08:00~09:00')
                                 if '1730~1800' in cafe_menu[size][what]:
-                                    cafe_menu[size][what] = cafe_menu[size][what].replace('1730~1800', '1730~1830')
+                                    cafe_menu[size][what] = cafe_menu[size][what].replace('1730~1800', '17:30~18:30')
                             else:
                                 if '0830~0900' in cafe_menu[size][what]:
-                                    cafe_menu[size][what] = cafe_menu[size][what].replace('0830~0900', '0800~0930')
+                                    cafe_menu[size][what] = cafe_menu[size][what].replace('0830~0900', '08:00~09:30')
                                 if '1730~1800' in cafe_menu[size][what]:
-                                    cafe_menu[size][what] = cafe_menu[size][what].replace('1730~1800', '1730~1900')
+                                    cafe_menu[size][what] = cafe_menu[size][what].replace('1730~1800', '17:30~19:00')
                                 if '1200~1300' in cafe_menu[size][what]:
-                                    cafe_menu[size][what] = cafe_menu[size][what].replace('1200~1300', '1200~1400')
+                                    cafe_menu[size][what] = cafe_menu[size][what].replace('1200~1300', '12:00~14:00')
+                        elif cafeteria == '후생관':
+                            if '11030' in cafe_menu[size][what]:
+                                cafe_menu[size][what] = cafe_menu[size][what].replace('1030~1830', ' 10:30~18:30')
                     except:
                         print("haksik_pre 기숙사 식당 시간오류")
 
