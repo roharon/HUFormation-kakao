@@ -233,6 +233,18 @@ def glo_crawl(cafeteria, date):
                         elif cafeteria == '후생관':
                             if '11030' in cafe_menu[size][what]:
                                 cafe_menu[size][what] = cafe_menu[size][what].replace('1030~1830', ' 10:30~18:30')
+                        ##JunKiBeom fix the following code.
+                        
+                            if '1030' in cafe_menu[size][what]:
+                                cafe_menu[size][what] = cafe_menu[size][what].replace('1030~소진시까지', ' 10:30~소진시까지')
+                            if '1100' in cafe_menu[size][what]:
+                                cafe_menu[size][what] = cafe_menu[size][what].replace('1100~1830', ' 11:00~18:30')
+                            if '21030' in cafe_menu[size][what]:
+                                cafe_menu[size][what] = cafe_menu[size][what].replace('1030~1830', ' 10:30~18:30')
+                            if '1730' in cafe_menu[size][what]:
+                                cafe_menu[size][what] = cafe_menu[size][what].replace('1730~1830', ' 17:30~18:30')
+                        ##JunKiBeom fix the following code.
+    
                     except:
                         print("haksik_pre 기숙사 식당 시간오류")
 
