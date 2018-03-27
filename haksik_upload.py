@@ -80,9 +80,10 @@ def db_insert(inmoon,gyosoo,sky_lounge,hooseng,umoon,dorm,professor,gookje,cur=N
         insert_menu(cur,"후생관",('',hooseng[1],hooseng[1]))
         if len(hooseng)>2:
             if '일품1' in hooseng[1]:
-                if '일품2' in hooseng[2]:
-                    insert_menu(cur, "후생관", ('',hooseng[2],hooseng[2]))
-                    insert_menu(cur, "후생관", ('', '', hooseng[3] if hooseng[3] else ''))
+                insert_menu(cur, "후생관", ('',hooseng[2],hooseng[2]))
+                insert_menu(cur, "후생관", ('', hooseng[3] if '일품' in hooseng[3] else '', hooseng[3] if ('석식' or '일품') in hooseng[3] else ''))
+                #fix it. 20180327-11pm
+
 
     elif '탕류' in hooseng[0]:
         if '뚝배기' in hooseng[1]:
