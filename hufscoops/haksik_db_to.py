@@ -141,6 +141,8 @@ def db_send(cafeteria, dates):
         emoti = '(허걱)', '(멘붕)', '(깜짝)', '(허걱)', '(부르르)', '(훌쩍)', '(우와)', '(심각)', '(헉)'
         menu = '\n오늘은 학식이 없어요 ' + random.choice(emoti)
 
+
+
     return [menu, today_date]
 
 

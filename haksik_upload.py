@@ -4,7 +4,7 @@ import sqlite3
 import datetime
 import os, sys
 from hufscoops import haksik_pre
-
+import temp_sikdan
 HOME_DIR = os.path.dirname(os.path.realpath(__file__))
 DB_DIR = os.path.join(HOME_DIR,"DB")
 DB_NAME = "haksik_data.db"
@@ -170,6 +170,8 @@ def db_crontab():
     days = day_kr[datetime.datetime.today().weekday()]
 
 
+
+
     for db_path, day in ((DB_PATH, 'today'), (DB_PATH_TOMORROW, 'tomorrow')):
         try:
             data = crawl(day)
@@ -179,8 +181,18 @@ def db_crontab():
         con= sqlite3.connect(db_path)
         cur = con.cursor()
         db_init(cur)
-        inmoon,gyosoo,sky_lounge,hooseng,umoon,dorm,professor,gookje = data
-        db_insert(inmoon,gyosoo,sky_lounge,hooseng,umoon,dorm,professor,gookje,cur,day,days=days)
+        check_date = datetime.datetime.now().strftime('%m%d') # new
+
+        inmoon, gyosoo, sky_lounge, hooseng, umoon, dorm, professor, gookje = data
+
+        if int(check_date) >= int('0409') and int(check_date) <= int('0413'):
+            hooseng=temp_sikdan.hooseng_temp(check_date)
+        else:
+            pass
+
+        db_insert(inmoon, gyosoo, sky_lounge, hooseng, umoon, dorm, professor, gookje, cur, day, days=days)
+
+
         con.commit()
         con.close()
 
