@@ -157,5 +157,7 @@ def hooseng_temp(check_date):
 가격 : 2,700
 """
 ]
-
+    elif check_date == '0414':
+        menu_list = []
+    print(check_date)
     return menu_list

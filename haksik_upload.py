@@ -81,8 +81,11 @@ def db_insert(inmoon,gyosoo,sky_lounge,hooseng,umoon,dorm,professor,gookje,cur=N
         if len(hooseng)>2:
             if '일품1' in hooseng[1]:
                 insert_menu(cur, "후생관", ('',hooseng[2],hooseng[2]))
-                insert_menu(cur, "후생관", ('', hooseng[3] if '일품' in hooseng[3] else '', hooseng[3] if ('석식' or '일품') in hooseng[3] else ''))
-                #fix it. 20180327-11pm
+                try:
+                    insert_menu(cur, "후생관", ('', hooseng[3] if '일품' in hooseng[3] else '', hooseng[3] if ('석식' or '일품') in hooseng[3] else ''))
+                except:
+                    pass
+                #fix it. 20180409-21:30
 
 
     elif '탕류' in hooseng[0]:
@@ -167,10 +170,8 @@ def db_insert(inmoon,gyosoo,sky_lounge,hooseng,umoon,dorm,professor,gookje,cur=N
 
 
 def db_crontab():
+
     days = day_kr[datetime.datetime.today().weekday()]
-
-
-
 
     for db_path, day in ((DB_PATH, 'today'), (DB_PATH_TOMORROW, 'tomorrow')):
         try:
@@ -181,15 +182,20 @@ def db_crontab():
         con= sqlite3.connect(db_path)
         cur = con.cursor()
         db_init(cur)
+
         check_date = datetime.datetime.now().strftime('%m%d') # new
 
         inmoon, gyosoo, sky_lounge, hooseng, umoon, dorm, professor, gookje = data
 
+        """
+        여기부터 추가
+        """
         if int(check_date) >= int('0409') and int(check_date) <= int('0413'):
-            hooseng=temp_sikdan.hooseng_temp(check_date)
-        else:
-            pass
-
+            if day == 'today':
+                hooseng = temp_sikdan.hooseng_temp(check_date)
+            elif day == 'tomorrow':
+                check_date = (datetime.datetime.now() + datetime.timedelta(days=1)).strftime('%m%d')
+                hooseng = temp_sikdan.hooseng_temp(check_date)
         db_insert(inmoon, gyosoo, sky_lounge, hooseng, umoon, dorm, professor, gookje, cur, day, days=days)
 
 
