@@ -190,7 +190,7 @@ def db_crontab():
         """
         여기부터 추가
         """
-        if int(check_date) >= int('0409') and int(check_date) <= int('0413'):
+        if int(check_date) >= int('0416') and int(check_date) <= int('0421'):
             if day == 'today':
                 hooseng = temp_sikdan.hooseng_temp(check_date)
             elif day == 'tomorrow':
