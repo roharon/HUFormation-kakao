@@ -54,51 +54,51 @@ def insert_menu(cur, cafe, menu):
 def db_insert(inmoon,gyosoo,sky_lounge,hooseng,umoon,dorm,professor,gookje,cur=None,day=None,days=None):
     print(" > DB inserting ...")
     query_insert = "INSERT INTO {}(breakfast, lunch, dinner) VALUES(?,?,?)"
-    if '조식' in hooseng[0]:
-        if '컵밥' in hooseng[1]:
-            if '한식' in hooseng[2]:
-                if '일품' in hooseng[3]:
+    try:
+        if '조식' in hooseng[0]:
+            if '컵밥' in hooseng[1]:
+                if '한식' in hooseng[2]:
+                    if '일품' in hooseng[3]:
+                        try:
+                            insert_menu(cur, "후생관", (hooseng[0], hooseng[1],
+                                                     hooseng[4] if '석식' in hooseng[4] else ''))
+                            insert_menu(cur, "후생관", ('', hooseng[2], ''))
+                            insert_menu(cur, "후생관", ('', hooseng[3], ''))
+                        except:
+                            print('석식 없음 오류')
+                    else:
+                        insert_menu(cur, "후생관", (hooseng[0], hooseng[1], ''))
+                        if '석식' in hooseng[3]:
+                            insert_menu(cur, "후생관", ('', hooseng[2], hooseng[3]))
+            else:
+                insert_menu(cur, "후생관", (hooseng[0], hooseng[1], hooseng[3]))
+                insert_menu(cur, "후생관", ('', hooseng[2], ''))
+        elif '일품' in hooseng[0]:
+            insert_menu(cur, "후생관", ('', hooseng[0], ''))
+            insert_menu(cur, "후생관", (hooseng[0], hooseng[1], hooseng[4]))
+        elif '뚝배기' in hooseng[0]:
+            insert_menu(cur, "후생관", ('', hooseng[0], hooseng[0]))
+            insert_menu(cur, "후생관", ('', hooseng[1], hooseng[1]))
+            if len(hooseng) > 2:
+                if '일품1' in hooseng[1]:
+                    insert_menu(cur, "후생관", ('', hooseng[2], hooseng[2]))
                     try:
-                        insert_menu(cur, "후생관", (hooseng[0], hooseng[1],
-                                        hooseng[4] if '석식' in hooseng[4] else ''))
-                        insert_menu(cur, "후생관", ('', hooseng[2], ''))
-                        insert_menu(cur, "후생관", ('', hooseng[3], ''))
+                        insert_menu(cur, "후생관", ('', hooseng[3] if '일품' in hooseng[3] else '',
+                                                 hooseng[3] if ('석식' or '일품') in hooseng[3] else ''))
                     except:
-                        print('석식 없음 오류')
-                else:
-                    insert_menu(cur, "후생관", (hooseng[0], hooseng[1], ''))
-                    if '석식' in hooseng[3]:
-                        insert_menu(cur, "후생관", ('', hooseng[2], hooseng[3]))
-        else:
-            insert_menu(cur, "후생관", (hooseng[0], hooseng[1], hooseng[3]))
-            insert_menu(cur, "후생관", ('', hooseng[2], ''))
-    elif '일품' in hooseng[0]:
-        insert_menu(cur, "후생관", ('', hooseng[0], ''))
-        insert_menu(cur, "후생관", (hooseng[0], hooseng[1], hooseng[4]))
-    elif '뚝배기' in hooseng[0]:
-        insert_menu(cur,"후생관", ('',hooseng[0],hooseng[0]))
-        insert_menu(cur,"후생관",('',hooseng[1],hooseng[1]))
-        if len(hooseng)>2:
-            if '일품1' in hooseng[1]:
-                insert_menu(cur, "후생관", ('',hooseng[2],hooseng[2]))
-                try:
-                    insert_menu(cur, "후생관", ('', hooseng[3] if '일품' in hooseng[3] else '', hooseng[3] if ('석식' or '일품') in hooseng[3] else ''))
-                except:
-                    pass
-                #fix it. 20180409-21:30
-
-
-    elif '탕류' in hooseng[0]:
-        if '뚝배기' in hooseng[1]:
-            if '일품1' in hooseng[2]:
+                        pass
+                    # fix it. 20180409-21:30
+        elif '탕류' in hooseng[0]:
+            if '뚝배기' in hooseng[1]:
+                if '일품1' in hooseng[2]:
                     if '일품2' in hooseng[3]:
-                        #일품2 있고
+                        # 일품2 있고
                         insert_menu(cur, "후생관", ('', hooseng[0], hooseng[0]))
                         insert_menu(cur, "후생관", ('', hooseng[1], hooseng[1]))
                         insert_menu(cur, "후생관", ('', hooseng[2], hooseng[2]))
                         insert_menu(cur, "후생관", ('', hooseng[3], hooseng[3]))
                         try:
-                            insert_menu(cur,"후생관",('','',hooseng[4] if '석식' in hooseng[4] else ''))
+                            insert_menu(cur, "후생관", ('', '', hooseng[4] if '석식' in hooseng[4] else ''))
                         except:
                             pass
 
@@ -107,10 +107,9 @@ def db_insert(inmoon,gyosoo,sky_lounge,hooseng,umoon,dorm,professor,gookje,cur=N
                         insert_menu(cur, "후생관", ('', hooseng[0], hooseng[0]))
                         insert_menu(cur, "후생관", ('', hooseng[1], hooseng[1]))
                         insert_menu(cur, "후생관", ('', hooseng[2], hooseng[2]))
-                        insert_menu(cur,"후생관",('','',hooseng[3] if '석식' in hooseng[3] else ''))
-
-
-
+                        insert_menu(cur, "후생관", ('', '', hooseng[3] if '석식' in hooseng[3] else ''))
+    except:
+        pass
     insert_menu(cur, "어문관", (umoon[0], umoon[0], umoon[0]))
 
     if '조식(T/O)' in dorm[1]:
@@ -196,6 +195,7 @@ def db_crontab():
             elif day == 'tomorrow':
                 check_date = (datetime.datetime.now() + datetime.timedelta(days=1)).strftime('%m%d')
                 hooseng = temp_sikdan.hooseng_temp(check_date)
+
         db_insert(inmoon, gyosoo, sky_lounge, hooseng, umoon, dorm, professor, gookje, cur, day, days=days)
 
 
