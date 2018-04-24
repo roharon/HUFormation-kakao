@@ -104,3 +104,8 @@ ENV/
 DB/
 *.iml
 *.iml
+*.xml
+*.iml
+*.iml
+*.xml
+.idea/workspace.xml

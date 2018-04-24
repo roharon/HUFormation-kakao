@@ -15,9 +15,11 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-
+from facebook_upload import haksik_table_make
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^seoul_menu', haksik_table_make.to_seo_table),
+    url(r'^global_menu', haksik_table_make.to_glo_table),
     url(r'^', include('hufscoops.app_urls')),
 ]
