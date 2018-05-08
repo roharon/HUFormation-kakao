@@ -109,3 +109,6 @@ DB/
 *.iml
 *.xml
 .idea/workspace.xml
+.idea/HUFormation.iml
+*.iml
+*.xml
