@@ -70,6 +70,27 @@ def db_insert(inmoon,gyosoo,sky_lounge,hooseng,umoon,dorm,professor,gookje,cur=N
                         insert_menu(cur, "후생관", (hooseng[0], hooseng[1], ''))
                         if '석식' in hooseng[3]:
                             insert_menu(cur, "후생관", ('', hooseng[2], hooseng[3]))
+
+            elif '뚝배기' in hooseng[1]:
+                ## --2018-05-08 석식안뜨는 문제 오류 해결--
+                # 조식-뚝배기-일품1-일품2-석식
+                # 일품없거나 석식없을때 문제 오류 해결.
+                if '일품1' in hooseng[2]:
+                    if '일품2' in hooseng[3]:
+                        insert_menu(cur,"후생관", (hooseng[0], hooseng[1], ''))
+                        insert_menu(cur, "후생관", ('', hooseng[0], ''))
+                        insert_menu(cur,"후생관",('',hooseng[2],''))
+                        insert_menu(cur,"후생관",('',hooseng[3],''))
+                        insert_menu(cur,"후생관",('','',hooseng[4] if len(hooseng) > 3 else '' ))
+
+                    else:
+                        insert_menu(cur, "후생관", (hooseng[0], hooseng[1], ''))
+                        insert_menu(cur, "후생관", ('', hooseng[0], ''))
+                        insert_menu(cur, "후생관", ('', hooseng[2], ''))
+                        insert_menu(cur, "후생관", ('', '', hooseng[3] if len(hooseng) > 2 else ''))
+
+
+
             else:
                 insert_menu(cur, "후생관", (hooseng[0], hooseng[1], hooseng[3]))
                 insert_menu(cur, "후생관", ('', hooseng[2], ''))
