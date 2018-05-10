@@ -236,7 +236,7 @@ def glo_crawl(cafeteria, date):
                             
                         ##JunKiBeom fix the following code.
                             if '1030' in cafe_menu[size][what]:
-                                cafe_menu[size][what] = cafe_menu[size][what].replace('1030~소진시까지', ' 10:30~소진시까지')
+                                cafe_menu[size][what] = cafe_menu[size][what].replace('1030~1130', ' 10:30~11:30')  #fix time
                             if '1100' in cafe_menu[size][what]:
                                 cafe_menu[size][what] = cafe_menu[size][what].replace('1100~1830', ' 11:00~18:30')
                             if '21030' in cafe_menu[size][what]:
