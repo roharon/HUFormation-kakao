@@ -112,3 +112,6 @@ DB/
 .idea/HUFormation.iml
 *.iml
 *.xml
+*.iml
+.idea/misc.xml
+.idea/workspace.xml
