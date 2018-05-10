@@ -13,3 +13,6 @@ class Log(models.Model):
     id = models.AutoField(primary_key=True)
     cafe_name = models.CharField(max_length=30, default="")
     timestamp = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.cafe_name + '시간 : ' + str(self.timestamp)
