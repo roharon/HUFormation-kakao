@@ -15,4 +15,4 @@ class Log(models.Model):
     timestamp = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.cafe_name + '시간 : ' + str(self.timestamp)
+        return self.cafe_name + '\t\t\t시간 : ' + str(self.timestamp)

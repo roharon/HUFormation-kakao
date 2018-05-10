@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1fcb0ece-2fad-496f-8b45-4f787d1dfbfd" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/HUFormation.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/HUFormation.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hufscoops/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/hufscoops/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hufscoops_project/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/hufscoops_project/settings.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -31,9 +29,21 @@
         <entry file="file://$PROJECT_DIR$/hufscoops/models.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="306">
-              <caret line="17" column="61" lean-forward="true" selection-start-line="17" selection-start-column="61" selection-end-line="17" selection-end-column="61" />
+              <caret line="17" column="39" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="39" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hufscoops/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="200">
+              <caret line="532" column="14" selection-start-line="532" selection-start-column="4" selection-end-line="532" selection-end-column="14" />
+              <folding>
+                <element signature="e#0#35#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -86,8 +96,8 @@
       <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hufscoops_project/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="25" selection-start-line="25" selection-end-line="25" />
+            <state relative-caret-position="325">
+              <caret line="126" column="45" selection-start-line="126" selection-start-column="45" selection-end-line="126" selection-end-column="45" />
             </state>
           </provider>
         </entry>
@@ -123,6 +133,9 @@
       <find>iml</find>
       <find>이미지</find>
       <find>후생</find>
+      <find>USE-TX</find>
+      <find>USE_T</find>
+      <find>create_log</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -140,10 +153,10 @@
         <option value="$PROJECT_DIR$/hufscoops_project/urls.py" />
         <option value="$PROJECT_DIR$/apache/django.wsgi" />
         <option value="$PROJECT_DIR$/hufscoops_project/SECRET_KEY.json" />
-        <option value="$PROJECT_DIR$/hufscoops_project/settings.py" />
         <option value="$PROJECT_DIR$/hufscoops/views.py" />
         <option value="$PROJECT_DIR$/facebook_upload/upload.py" />
         <option value="$PROJECT_DIR$/haksik_upload.py" />
+        <option value="$PROJECT_DIR$/hufscoops_project/settings.py" />
         <option value="$PROJECT_DIR$/hufscoops/models.py" />
       </list>
     </option>
@@ -193,11 +206,6 @@
               <item name="HUFormation-kakao" type="b2602c69:ProjectViewProjectNode" />
               <item name="HUFormation-kakao" type="462c0819:PsiDirectoryNode" />
               <item name="hufscoops" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="HUFormation-kakao" type="b2602c69:ProjectViewProjectNode" />
-              <item name="HUFormation-kakao" type="462c0819:PsiDirectoryNode" />
-              <item name="hufscoops_project" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -366,9 +374,9 @@
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Python Console" order="7" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.27553192" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.27553192" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32978722" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15364583" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15364583" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="right" id="SciView" order="3" />
@@ -705,20 +713,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hufscoops/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="5" column="15" selection-start-line="5" selection-start-column="15" selection-end-line="5" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hufscoops_project/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="25" selection-start-line="25" selection-end-line="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/hufscoops/haksik_db_to.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="18">
@@ -762,10 +756,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/hufscoops_project/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="126" column="45" selection-start-line="126" selection-start-column="45" selection-end-line="126" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hufscoops/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="532" column="14" selection-start-line="532" selection-start-column="4" selection-end-line="532" selection-end-column="14" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/hufscoops/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
-          <caret line="17" column="61" lean-forward="true" selection-start-line="17" selection-start-column="61" selection-end-line="17" selection-end-column="61" />
+          <caret line="17" column="39" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="39" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
           </folding>

@@ -122,7 +122,9 @@ USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+USE_TZ = False
+
+# USE_TZ가 True면 templaets,forms에서만 타임존이 설정된다.
 
 
 # Static files (CSS, JavaScript, Images)
