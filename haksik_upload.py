@@ -155,6 +155,13 @@ def db_insert(inmoon,gyosoo,sky_lounge,hooseng,umoon,dorm,professor,gookje,cur=N
             else:
                 insert_menu(cur, "기숙사", (dorm[0], dorm[2], dorm[4]))
                 insert_menu(cur, "기숙사", (dorm[1], dorm[3], dorm[5] if '석식' in dorm[5] else ''))
+        elif '중식(일반)' in dorm[2]:
+            if '스넥' in dorm[3]:
+                if '석식' in dorm[4]:
+                    insert_menu(cur, "기숙사", (dorm[0],dorm[2],dorm[4]))
+                    insert_menu(cur, "기숙사", (dorm[1],dorm[3],''))
+
+
         else:
             insert_menu(cur, "기숙사", (dorm[0], dorm[2], dorm[3]))
             insert_menu(cur, "기숙사", (dorm[1], '', dorm[4] if '석식(일품)' in dorm[4] else ''))
@@ -170,6 +177,7 @@ def db_insert(inmoon,gyosoo,sky_lounge,hooseng,umoon,dorm,professor,gookje,cur=N
                 insert_menu(cur, "기숙사", (dorm[0], dorm[1], dorm[2]))
 
     insert_menu(cur, "교직원", ('', professor[0], professor[1]))
+    print(professor[0],professor[1])
     insert_menu(cur, "국제사회교육원", (gookje[0], gookje[1], gookje[2]))
 
 
