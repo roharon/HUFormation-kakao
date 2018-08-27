@@ -28,7 +28,7 @@ def db_init(db_cursor):
             db_cursor.execute(query_delete.format(tname))
             db_cursor.execute(query_create.format(tname))
     except:
-        print("Database create error.", file=sys.stderr)
+        print("Database create error." + sys.stderr)
         raise
 
 def crawl(day):
