@@ -9,20 +9,22 @@ import sqlite3
 import time
 from . import haksik_db_to
 from . import library_crawl
+from .gnuvill.find_members import gnuvill_find_members
 #from .markov_chat.rep import make_reply
-
+H_buttons= ['학식', '내일의 학식', '시간별 학식', '이미지 학식', '도서관', '캠퍼스 변경']
+ex_ip = 'http://35.200.114.215:8001'
 def keyboard(request):
 
     #'buttons': ['학식', '이미지 학식', '시간별 학식', '도서관', '캠퍼스 변경']
     return JsonResponse({
         'type': 'buttons',
-        'buttons': ['학식', '내일의 학식', '시간별 학식', '이미지 학식', '도서관', '캠퍼스 변경']
+        'buttons': H_buttons
     })
 
 
 @csrf_exempt
 def message(request):
-    button_info = ['학식', '내일의 학식', '시간별 학식', '이미지 학식', '도서관', '캠퍼스 변경']
+    button_info = H_buttons
     glo_info = ['후생관', '어문관', '기숙사 식당', '교직원 식당', '국제사회교육원']
     glo_tomorrow_info=['=후생관=', '=어문관=', '=기숙사 식당=', '=교직원 식당=', '=국제사회교육원=']
     seo_info=['인문관', '교수회관', '스카이 라운지']
@@ -392,7 +394,7 @@ def message(request):
                 'message': {
                     'text': str(today_date) + ' 점심 학식입니다',
                     'photo': {
-                        'url': 'http://35.189.136.35:8001/static/img/'+'seoul'+today_d+'.png',
+                        'url': 'http:://' + ex_ip + '/static/img/' + 'seoul'+today_d+'.png',
                         'width': 350,
                         'height': 600
                     },
@@ -408,7 +410,7 @@ def message(request):
                 'message': {
                     'text': str(today_date) + ' 점심 학식입니다',
                     'photo': {
-                        'url': 'http://35.189.136.35:8001/static/img/'+'global'+today_d+'.png',
+                        'url': 'http:://' + ex_ip + '/static/img/' +'global'+today_d+'.png',
                         'width': 350,
                         'height': 600
                     },
@@ -469,6 +471,17 @@ def message(request):
         return JsonResponse({
             'message': {
                 'text': text
+            },
+            'keyboard': {
+                'type': 'buttons',
+                'buttons': button_info
+            }
+        })
+
+    elif content_name == "(~9/5)그누빌 SW동아리 모집":
+        return JsonResponse({
+            'message' : {
+                'text': gnuvill_find_members()
             },
             'keyboard': {
                 'type': 'buttons',
