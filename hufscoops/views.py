@@ -389,12 +389,13 @@ def message(request):
 
     elif content_name == '이미지 학식':
         today_d = today.strftime('%Y%m%d')
+        today_newtype = today.strftime("%m월 %d일")
         if user_type == 'seoul':
             return JsonResponse({
                 'message': {
-                    'text': str(today_date) + ' 점심 학식입니다',
+                    'text': '훕포메이션의 ' + str(today_newtype) + '\n점심시간 메뉴판',
                     'photo': {
-                        'url': 'http:://' + ex_ip + '/static/img/' + 'seoul'+today_d+'.png',
+                        'url': 'http://' + ex_ip + '/static/img/' + 'seoul'+today_d+'.png',
                         'width': 350,
                         'height': 600
                     },
@@ -408,9 +409,9 @@ def message(request):
         elif user_type == 'global':
             return JsonResponse({
                 'message': {
-                    'text': str(today_date) + ' 점심 학식입니다',
+                    'text': '훕포메이션의 ' + str(today_newtype) + '\n점심시간 메뉴판',
                     'photo': {
-                        'url': 'http:://' + ex_ip + '/static/img/' +'global'+today_d+'.png',
+                        'url': 'http://' + ex_ip + '/static/img/' +'global'+today_d+'.png',
                         'width': 350,
                         'height': 600
                     },
@@ -457,7 +458,7 @@ def message(request):
                     'text': '학식 오류. 개발자에게 문의하세요'
                 },
                 'type': 'buttons',
-                'buttons': button_info
+                'buttons': button_info  
             })
     elif content_name in ['=후생관=', '=어문관=', '=기숙사 식당=', '=교직원 식당=', '=국제사회교육원=', '=인문관=',
                           '=교수회관=', '=스카이 라운지=']:

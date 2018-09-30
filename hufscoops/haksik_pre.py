@@ -5,6 +5,9 @@ import random
 
 def seo_crawl(cafeteria, date):
     today = datetime.date.today()
+    t = ['월', '화', '수', '목', '금', '토', '일']
+    r = datetime.datetime.today().weekday()
+    days = t[r]
 
     if date == 'tomorrow':
         today = today + datetime.timedelta(days=1)
@@ -87,6 +90,8 @@ def seo_crawl(cafeteria, date):
         for i in range(0, size):
             if 'hfspn' in menu[i]:
                 menu[i] = ''
+            if days == "토":
+                menu[i] = menu[i].replace("1100~1430", "1100~1400")
 
     return menu
 

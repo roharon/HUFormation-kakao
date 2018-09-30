@@ -210,3 +210,9 @@ pip-selfcheck.json
 
 
 # End of https://www.gitignore.io/api/git,python,django,pycharm+all
+*.png
+*.xml
+*.sqlite3
+*.db
+hufscoops/gnuvill/find_members.py
+DB/tomorrow_haksik_data.db
