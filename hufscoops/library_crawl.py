@@ -45,11 +45,31 @@ def seo_library(name):
 
     for title in my_titles:
         data.append(title.text)
-
+    print(data)
     # #return data[num+2].split()
+
+    # 서울캠 도서관 임시도서관 열람실
+
+    if name == "도서관":
+        return {'room-A' : data[3].split()[5],
+                'room-B' : data[4].split()[5],
+                }
+    else:
+        return {'%': data[name+2].split()[5], '이용자': data[name+2].split()[3], '남은 좌석': data[name+2].split()[4] }
+        # print(data[name+2].split())
+
+
+    """
+    # 서울캠퍼스 도서관 공사 중
+    
     if name == '도서관':
         return {'4-1A': data[3].split()[6], '4-1B': data[4].split()[6], '4-2': data[5].split()[6], '5-3A': data[6].split()[6],
                 '5-3B': data[7].split()[6], '5-4': data[8].split()[6]}
     else:
         # #print(data[name+2].split())
         return {'%': data[name+2].split()[6], '이용자': data[name+2].split()[4], '남은 좌석': data[name+2].split()[5]}
+    """
+
+
+if __name__ == "__main__":
+    print(seo_library("도서관"))

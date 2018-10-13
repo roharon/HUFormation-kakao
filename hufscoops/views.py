@@ -202,13 +202,19 @@ def message(request):
                         'buttons': button_info
                     }
                 })
-
+            """
             buttons = ['4층 제1열람실(A): ' + str(lib_data['4-1A'] + '%'),
                     '4층 제1열람실(B): ' + str(lib_data['4-1B'] + '%'),
                     '4층 제2열람실(노트북): ' + str(lib_data['4-2'] + '%'),
                     '5층 제3열람실(A): ' + str(lib_data['5-3A'] + '%'),
                     '5층 제3열람실(B): ' + str(lib_data['5-3B'] + '%'), '5층 제4열람실: ' + str(lib_data['5-4'] + '%')
                         ]
+            """
+
+            buttons = ['열람실(A): ' + str(lib_data['room-A'] + "%"),
+                       '열람실(B): ' + str(lib_data['room-B'] + "%"),
+                       ]
+
             end_time = time.time()
             print(end_time - start_time)
             return JsonResponse({
@@ -257,6 +263,8 @@ def message(request):
 
     elif '열람실' in content_name:
         if user_type == 'seoul':
+
+            """
             if '4층 제1열람실(A)' in content_name:
                 name = "4층 제1열람실(A) 현황: "
                 lib_num = 1
@@ -281,11 +289,21 @@ def message(request):
                 name = '5층 제4열람실 현황: '
                 lib_num = 6
                 room_no = 6
+            """
+
+            if "열람실(A)" in content_name:
+                name = "열람실(A) 현황: "
+                lib_num = 1
+                room_no = 1
+            elif "열람실(B)" in content_name:
+                name = "열람실(B) 현황: "
+                lib_num = 2
+                room_no = 2
 
             lib_data = library_crawl.seo_library(lib_num)
             end_time = time.time()
             print(end_time - start_time)
-
+            print(lib_data)
             return JsonResponse({
                 'message': {
                     'text': name + str(lib_data['%']) + '%' + '\n이용자 수: ' + str(lib_data['이용자']) +
