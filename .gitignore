@@ -1,5 +1,13 @@
 
 # Created by https://www.gitignore.io/api/git,python,django,pycharm+all
+## HUFORMATION ##
+./assets/
+
+./facebook_upload/
+./hufscoops/gnuvill/
+./hufscoops/markv_chat
+./db.sqlite3
+
 
 ### Django ###
 *.log
@@ -216,3 +224,4 @@ pip-selfcheck.json
 *.db
 hufscoops/gnuvill/find_members.py
 DB/tomorrow_haksik_data.db
+assets/bower_components/c3/c3.css

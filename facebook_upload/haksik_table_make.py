@@ -269,7 +269,7 @@ def glo_haksik_load():
 
 def formatted_haksik(time, cafeteria):
 
-    con = sqlite3.connect('./DB/haksik_data.db')
+    con = sqlite3.connect('../DB/haksik_data.db')
     cur = con.cursor()
 
     querys = 'SELECT ' + time + ' FROM ' + cafeteria
