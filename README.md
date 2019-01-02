@@ -1,5 +1,5 @@
 # HUFORMATION - KakaoTalk Plusfriend
-![](https://img.shields.io/badge/License-MIT-blue.svg)![](https://img.shields.io/badge/Python-3.6-blue.svg)![](https://img.shields.io/pypi/djversions/djangorestframework.svg)
+![](https://img.shields.io/badge/License-MIT-blue.svg) ![](https://img.shields.io/badge/Python-3.6-blue.svg) ![](https://img.shields.io/pypi/djversions/djangorestframework.svg)
 
 
 
