@@ -1,50 +1,54 @@
-HUFormation
------------
->MIT라이선스 하에 사용가능합니다.
+# HUFORMATION - KakaoTalk Plusfriend
+![](https://img.shields.io/badge/License-MIT-blue.svg)![](https://img.shields.io/badge/Python-3.6-blue.svg)![](https://img.shields.io/pypi/djversions/djangorestframework.svg)
 
-> 카카오톡 [@훕포메이션](http://pf.kakao.com/_xdERZxl) 을 통해서 확인할 수 있습니다.
-<br>
-> 문의 roharon@hufs.ac.kr
 
-<html>
-<p>
 
-<br>
-  <h2>개발 환경</h2>
-    <ul>
-    <li>Ubuntu 16.04</li>
-    <li>PyCharm</li>
-    <li>VirtualEnv</li>
-    <li>Python 3.6.1</li>
-    <li>Django 1.11.2</li>
-    </ul>
+> 한국외국어대학교 식당메뉴 조회 플러스친구
+
+[훕포메이션](http://pf.kakao.com/_xdERZxl)
+
+## Environment
+
+- Ubuntu 16.04
+- PyCharm
+- VirtualEnv
+- Python 3.6.1
+- Django 1.11.2
+
+## Library
+
+- beautifulsoup4
+- Django
+- lxml
+- requests
+- sqlite3
+
+`requirements.txt`참고
+
+> assets, hufscoops, hufscoops_project 폴더가 있는 디렉토리에 DB폴더 생성
+
+> `./facebook_upload/upload.py` 와 `./haksik_upload.py` 는        
+cron 작업을 통해 실행
+
+    //서버실행
+    python manage.py runserver IP:PORT
     
-</p>
-<p>
-<h2>사용된 모듈
-</h2>
-<ul>
-<li>beautifulsoup4</li>
-<li>Django</li>
-<li>lxml</li>
-<li>requests</li>
-<li>sqlite3 (Django에 내장</li>
-</ul>
-자세한 부분은 requirements.txt 참조
+    //cron 작업실행
+    0 0 * * * ./haksik_upload.py
+    0 0 * * * ./facebook_upload/upload.py
 
-</p>
+---
 
-#사용법
-> assets, hufscoops, hufscoops_project 폴더가 있는 디렉토리에 DB폴더 생성해야합니다
+# 미리보기
 
-> ./facebook_upload/upload.py 와 ./haksik_upload.py 는 cron 작업을 통해 실행합니다 
-<pre><code>cron 작업실행
-0 0 * * * ./haksik_upload.py
-0 0 * * * ./facebook_upload/upload.py</code></pre>
-<br>
- <pre><code>python manage.py migrate    //DB 마이그레이션
+- 메인메뉴 화면
 
-python manage.py runserver [server_address]:[PORT]    //서버 실행</code></pre>
-    
-    
-</html>
+    ![](https://github.com/roharon/HUFormation-kakao/blob/master/preview/main_menu.jpg?raw=true)
+
+- 도서관 기능
+
+    ![](https://github.com/roharon/HUFormation-kakao/blob/master/preview/library_menu.jpg?raw=true)
+
+- 학식메뉴 기능
+
+    ![](https://github.com/roharon/HUFormation-kakao/blob/master/preview/cafeteria_menu.jpg?raw=true)
