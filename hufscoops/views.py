@@ -9,7 +9,6 @@ import sqlite3
 import time
 from . import haksik_db_to
 from . import library_crawl
-from .gnuvill.find_members import gnuvill_find_members
 #from .markov_chat.rep import make_reply
 H_buttons= ['학식', '내일의 학식', '시간별 학식', '이미지 학식', '도서관', '캠퍼스 변경']
 ex_ip = 'http://huformation.aaronroh.org:8001'
@@ -491,17 +490,6 @@ def message(request):
         return JsonResponse({
             'message': {
                 'text': text
-            },
-            'keyboard': {
-                'type': 'buttons',
-                'buttons': button_info
-            }
-        })
-
-    elif content_name == "(~9/5)그누빌 SW동아리 모집":
-        return JsonResponse({
-            'message' : {
-                'text': gnuvill_find_members()
             },
             'keyboard': {
                 'type': 'buttons',
