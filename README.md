@@ -6,6 +6,7 @@
 > 한국외국어대학교 식당메뉴 조회 플러스친구
 
 [훕포메이션](http://pf.kakao.com/_xdERZxl)
+[2017.11 플러스친구 성공사례](https://pf.kakao.com/_TsIAE/4212564)
 
 ## Environment
 
