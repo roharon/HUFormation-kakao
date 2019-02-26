@@ -15,7 +15,7 @@ from .hufstory_apply.apply import apply_hufstory
 
 #from .markov_chat.rep import make_reply
 H_buttons= ['학식', '내일의 학식', '시간별 학식', '이미지 학식', '도서관', '캠퍼스 변경', '훕포메이션과 함께할 팀원 모집 [~3/8]']
-ex_ip = 'http://huformation.aaronroh.org:8001'
+ex_ip = 'huformation.aaronroh.org:8001'
 
 def keyboard(request):
 
