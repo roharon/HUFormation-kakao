@@ -1,3 +1,5 @@
+from django.http import JsonResponse
+
 def apply_hufstory():
     return JsonResponse({
             'message': {
