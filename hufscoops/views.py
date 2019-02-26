@@ -7,15 +7,18 @@ import datetime
 import json
 import sqlite3
 import time
+
 from . import haksik_db_to
 from . import library_crawl
+from .haksik_table_make import formatted_haksik
+from .hufstory_apply.apply import apply_hufstory
+
 #from .markov_chat.rep import make_reply
-H_buttons= ['학식', '내일의 학식', '시간별 학식', '이미지 학식', '도서관', '캠퍼스 변경']
+H_buttons= ['학식', '내일의 학식', '시간별 학식', '이미지 학식', '도서관', '캠퍼스 변경', '훕포메이션과 함께할 팀원 모집 [~3/8]']
 ex_ip = 'http://huformation.aaronroh.org:8001'
 
 def keyboard(request):
 
-    #'buttons': ['학식', '이미지 학식', '시간별 학식', '도서관', '캠퍼스 변경']
     return JsonResponse({
         'type': 'buttons',
         'buttons': H_buttons
@@ -47,6 +50,9 @@ def message(request):
     con = sqlite3.connect("./DB/userdata.db")
     cur = con.cursor()
 
+    if "훕포메이션과 함께할" in content_name:
+        return apply_hufstory()
+
     # #cur.execute("CREATE TABLE user_data(Name TEXT, Campus TEXT);")
     if "캠퍼스 변경" in content_name:
         return JsonResponse({
@@ -58,48 +64,6 @@ def message(request):
                 'buttons': ['서울', '글로벌']
             }
         })
-
-        """
-            elif (content_name == "대화하기") and (content_type=="buttons"):
-        
-        마르코브체인 이용한 채팅학습
-
-        
-        return JsonResponse({
-            'message': {
-                'text': "훕포메이션과 채팅을 시작합니다\n말한 내용은 모두 학습합니다.\n종료를 원하시면 `종료`라고 적어주세요"
-            },
-            'keyboard': {
-                'type': 'text'
-            }
-
-        })
-
-    elif content_type=='text':
-        return JsonResponse({
-            'message': {
-                'text': make_reply(content_name)
-            },
-            'keyboard': {
-                'type': 'text'
-            }
-
-        })
-    elif "종료" in content_name and content_type=='text':
-        return JsonResponse({
-            'message': {
-                'text': '훕포메이션과의 채팅을 종료합니다.'
-            },
-            'keyboard': {
-                'type': 'buttons',
-                'buttons': button_info
-            }
-        })
-        """
-
-
-
-
 
     elif content_name in ("서울", "글로벌"):
 
@@ -515,6 +479,16 @@ def message(request):
                 'buttons': button_info
             }
         })
+
+def rest_api_cafe(cafeteria, day):
+    cafe_data = formatted_haksik(day, cafeteria)
+
+    return JsonResponse({
+        "cafe": cafeteria,
+        "day": day,
+        "result": dict(cafe_data)
+    })
+
 def glo_post(request):
     cafeterias = ['후생관', '어문관', '기숙사 식당', '교직원 식당', '국제사회교육원']
     return render(request, 'blog/templates/seo_haksik_table.html', {'cafeterias': cafeterias})
