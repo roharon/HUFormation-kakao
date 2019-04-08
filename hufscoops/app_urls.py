@@ -9,5 +9,4 @@ urlpatterns = [
     url(r'^seoul_menu', haksik_table_make.to_seo_table),
     url(r'^global_menu', haksik_table_make.to_glo_table),
     url(r'^analysis', views.analysis),
-    url(r'^rest/<cafeteria>/<int:day>', views.rest_api_cafe())
 ]
