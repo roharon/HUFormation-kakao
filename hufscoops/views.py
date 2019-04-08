@@ -480,7 +480,7 @@ def message(request):
             }
         })
 
-def rest_api_cafe(cafeteria='', day='today'):
+def rest_api_cafe(cafeteria='인문관', day='today'):
     cafe_data = formatted_haksik(day, cafeteria)
 
     return JsonResponse({
