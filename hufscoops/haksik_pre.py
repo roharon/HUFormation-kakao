@@ -219,7 +219,7 @@ def glo_crawl(cafeteria, date):
                             if days in ['토', '일']:
                                 if '0830~0900' in cafe_menu[size][what]:
                                     cafe_menu[size][what] = cafe_menu[size][what].replace('0830~0900', '08:00~09:00')
-                                if '1730~1800' in cafe_menu[size][what]:
+                                if '1730~1900' in cafe_menu[size][what]:
                                     cafe_menu[size][what] = cafe_menu[size][what].replace('1730~1800', '17:30~18:30')
                             else:
                                 if '0830~0900' in cafe_menu[size][what]:
