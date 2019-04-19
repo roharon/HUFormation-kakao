@@ -14,7 +14,9 @@ from .haksik_table_make import formatted_haksik
 from .hufstory_apply.apply import apply_hufstory
 
 #from .markov_chat.rep import make_reply
+
 H_buttons= ['학식', '내일의 학식', '시간별 학식', '이미지 학식', '도서관', '열람실 좌석 연장', '캠퍼스 변경']
+
 
 ex_ip = 'huformation.aaronroh.org:8001'
 
