@@ -14,7 +14,7 @@ from .haksik_table_make import formatted_haksik
 from .hufstory_apply.apply import apply_hufstory
 
 #from .markov_chat.rep import make_reply
-H_buttons= ['학식', '내일의 학식', '시간별 학식', '이미지 학식', '도서관', '캠퍼스 변경', '훕포메이션과 함께할 팀원 모집 [~3/8]']
+H_buttons= ['학식', '내일의 학식', '시간별 학식', '이미지 학식', '도서관', '열람실 좌석 연장', '캠퍼스 변경']
 ex_ip = 'huformation.aaronroh.org:8001'
 
 def keyboard(request):
@@ -50,9 +50,6 @@ def message(request):
     con = sqlite3.connect("./DB/userdata.db")
     cur = con.cursor()
 
-    if "훕포메이션과 함께할" in content_name:
-        return apply_hufstory()
-
     # #cur.execute("CREATE TABLE user_data(Name TEXT, Campus TEXT);")
     if "캠퍼스 변경" in content_name:
         return JsonResponse({
@@ -62,6 +59,22 @@ def message(request):
             'keyboard': {
                 'type': 'buttons',
                 'buttons': ['서울', '글로벌']
+            }
+        })
+
+    elif content_name == "열람실 좌석 연장":
+        return JsonResponse({
+            'message': {
+                "text": "열람실 좌석 연장하세요\n연장과 반납이 모두 가능합니다 (로그인 필요)",
+                'message_button': {
+                    'label': '좌석보기',
+                    'url': 'http://library.hufs.ac.kr:8091/mobile_new/lib_studyroom_charge.asp?lib='
+            }
+            },
+            
+            'keyboard': {
+                'type': 'buttons',
+                'buttons': H_buttons
             }
         })
 
