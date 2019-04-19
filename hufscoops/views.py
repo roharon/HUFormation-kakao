@@ -15,6 +15,7 @@ from .hufstory_apply.apply import apply_hufstory
 
 #from .markov_chat.rep import make_reply
 H_buttons= ['학식', '내일의 학식', '시간별 학식', '이미지 학식', '도서관', '열람실 좌석 연장', '캠퍼스 변경']
+
 ex_ip = 'huformation.aaronroh.org:8001'
 
 def keyboard(request):
@@ -188,8 +189,8 @@ def message(request):
                         ]
             """
 
-            buttons = ['열람실(A): ' + str(lib_data['room-A'] + "%"),
-                       '열람실(B): ' + str(lib_data['room-B'] + "%"),
+            buttons = ['열람실(A): ' + str(str(lib_data['room-A']) + "%"),
+                       '열람실(B): ' + str(str(lib_data['room-B']) + "%"),
                        ]
 
             end_time = time.time()
@@ -493,7 +494,7 @@ def message(request):
             }
         })
 
-def rest_api_cafe(cafeteria, day):
+def rest_api_cafe(cafeteria='인문관', day='today'):
     cafe_data = formatted_haksik(day, cafeteria)
 
     return JsonResponse({
