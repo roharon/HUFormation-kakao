@@ -326,7 +326,7 @@ def message(request):
                             '명\n남은 좌석 수: ' + str(lib_data['남은 좌석']),
                     'message_button': {
                         'label': '좌석보기',
-                        'url': 'http://203.232.237.8/domian5/roomview5.asp?room_no=' + str(room_no)
+                        'url': 'http://203.232.237.8/domian5/2/roomview5.asp?room_no=' + str(room_no)
                     }
                 },
                 'keyboard': {
