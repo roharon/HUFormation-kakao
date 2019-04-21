@@ -215,16 +215,6 @@ def db_crontab():
 
         inmoon, gyosoo, sky_lounge, hooseng, umoon, dorm, professor, gookje = data
 
-        """
-        여기부터 추가
-        """
-        if int(check_date) >= int('0416') and int(check_date) <= int('0421'):
-            if day == 'today':
-                hooseng = temp_sikdan.hooseng_temp(check_date)
-            elif day == 'tomorrow':
-                check_date = (datetime.datetime.now() + datetime.timedelta(days=1)).strftime('%m%d')
-                hooseng = temp_sikdan.hooseng_temp(check_date)
-
         db_insert(inmoon, gyosoo, sky_lounge, hooseng, umoon, dorm, professor, gookje, cur, day, days=days)
 
 
