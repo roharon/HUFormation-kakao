@@ -159,10 +159,19 @@ def glo_haksik_load():
                 hooseng_today_menu4=menu_list[4][1],
                 hooseng_today_price4=menu_list[4][-1],
             )
+        elif len(menu_list)==2:
+            hooseng_menu = dict(
+                hooseng_today_menu0=menu_list[0][1],
+                hooseng_today_price0=menu_list[0][-1],
+                hooseng_today_menu1=menu_list[1][1],
+                hooseng_today_price1=menu_list[1][-1],
+            )
     except:
         pass
-
-    all_menu.update(hooseng_menu)
+    try:
+        all_menu.update(hooseng_menu)
+    except:
+        all_menu.update()
 
     menu_list=formatted_haksik(time, '교직원')
 
